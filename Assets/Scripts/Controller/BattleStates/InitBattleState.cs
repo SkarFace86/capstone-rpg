@@ -18,6 +18,7 @@ public class InitBattleState : BattleState
         SpawnTestUnits();
         yield return null;
         owner.ChangeState<CutSceneState>();
+        owner.round = owner.gameObject.AddComponent<TurnOrderController>().Round();
     }
 
     void SpawnTestUnits()

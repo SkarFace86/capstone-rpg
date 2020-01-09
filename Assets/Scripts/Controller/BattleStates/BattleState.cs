@@ -16,6 +16,8 @@ public class BattleState : State
     public Turn turn { get { return owner.turn; } }
     public List<Unit> units { get { return owner.units; } }
 
+    public StatPanelController statPanelController { get { return owner.statPanelController; } }
+
     protected virtual void Awake()
     {
         owner = GetComponent<BattleController>();
@@ -50,5 +52,33 @@ public class BattleState : State
 
         pos = p;
         tileSelectionIndicator.localPosition = board.tiles[p].center;
+    }
+
+    // Get unit from board position
+    protected virtual Unit GetUnit(Point p)
+    {
+        Tile t = board.GetTile(p);
+        GameObject content = t != null ? t.content : null;
+        return content != null ? content.GetComponent<Unit>() : null;
+    }
+
+    // Tell StatPanelController to refresh an appropriate panel (show or hide it)
+    // based on whether or not the indicated location has a unit or not.
+    protected virtual void RefreshPrimaryStatPanel(Point p)
+    {
+        Unit target = GetUnit(p);
+        if (target != null)
+            statPanelController.ShowPrimary(target.gameObject);
+        else
+            statPanelController.HidePrimary();
+    }
+
+    protected virtual void RefreshSecondaryStatPanel(Point p)
+    {
+        Unit target = GetUnit(p);
+        if (target != null)
+            statPanelController.ShowSecondary(target.gameObject);
+        else
+            statPanelController.HideSecondary();
     }
 }

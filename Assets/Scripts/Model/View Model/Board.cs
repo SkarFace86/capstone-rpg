@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -19,14 +20,28 @@ public class Board : MonoBehaviour
         new Point(-1, 0)
     };
 
+    // Used for LineAbilityRange
+    public Point min { get { return _min; } }
+    public Point max { get { return _max; } }
+    private Point _min;
+    private Point _max;
+
     public void Load(LevelData data)
     {
+        _min = new Point(int.MaxValue, int.MaxValue);
+        _max = new Point(int.MinValue, int.MinValue);
+
         for (int i = 0; i < data.tiles.Count; ++i)
         {
             GameObject instance = Instantiate(tilePrefab) as GameObject;
             Tile t = instance.GetComponent<Tile>();
             t.Load(data.tiles[i]);
             tiles.Add(t.pos, t);
+
+            _min.x = Mathf.Min(_min.x, t.pos.x);
+            _min.y = Mathf.Min(_min.y, t.pos.y);
+            _max.x = Mathf.Max(_max.x, t.pos.x);
+            _max.y = Mathf.Max(_max.y, t.pos.y);
         }
     }
 

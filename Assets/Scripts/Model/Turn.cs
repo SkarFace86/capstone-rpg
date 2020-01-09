@@ -11,6 +11,8 @@ public class Turn
     public bool lockMove;
     private Tile startTile;
     private Directions startDir;
+    public GameObject ability;
+    public List<Tile> targets;
 
     public void Change(Unit current)
     {

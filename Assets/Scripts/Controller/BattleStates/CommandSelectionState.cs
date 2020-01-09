@@ -31,7 +31,7 @@ public class CommandSelectionState : BaseAbilityMenuState
                 owner.ChangeState <CategorySelectionState>();
                 break;
             case 2: // Wait
-                owner.ChangeState<SelectUnitState>();
+                owner.ChangeState<EndFacingState>();
                 break;
         }
     }
@@ -48,5 +48,17 @@ public class CommandSelectionState : BaseAbilityMenuState
         {
             owner.ChangeState<ExploreState>();
         }
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        statPanelController.ShowPrimary(turn.actor.gameObject);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
     }
 }

@@ -47,15 +47,29 @@ public class CategorySelectionState : BaseAbilityMenuState
 
     void Attack()
     {
-        turn.hasUnitActed = true;
-        if (turn.hasUnitMoved)
-            turn.lockMove = true;
-        owner.ChangeState<CommandSelectionState>();
+        //turn.hasUnitActed = true;
+        //if (turn.hasUnitMoved)
+        //    turn.lockMove = true;
+        //owner.ChangeState<CommandSelectionState>();
+        turn.ability = turn.actor.GetComponentInChildren<AbilityRange>().gameObject;
+        owner.ChangeState<AbilityTargetState>();
     }
 
     void SetCategory(int index)
     {
         ActionSelectionState.category = index;
         owner.ChangeState<ActionSelectionState>();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        statPanelController.ShowPrimary(turn.actor.gameObject);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
     }
 }
