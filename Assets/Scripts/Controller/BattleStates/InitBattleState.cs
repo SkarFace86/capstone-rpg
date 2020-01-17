@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InitBattleState : BattleState
 {
@@ -20,41 +22,74 @@ public class InitBattleState : BattleState
         owner.ChangeState<CutSceneState>();
     }
 
+    //void SpawnTestUnits()
+    //{
+    //    string[] jobs = new string[] { "Rogue", "Warrior", "Wizard" };
+    //    for (int i = 0; i < jobs.Length; ++i)
+    //    {
+    //        GameObject instance = Instantiate(owner.heroPrefab) as GameObject;
+
+    //        Stats s = instance.AddComponent<Stats>();
+    //        s[StatTypes.LVL] = 1;
+
+    //        GameObject jobPrefab = Resources.Load<GameObject>("Jobs/" + jobs[i]);
+    //        GameObject jobInstance = Instantiate(jobPrefab) as GameObject;
+    //        jobInstance.transform.SetParent(instance.transform);
+
+    //        Job job = jobInstance.GetComponent<Job>();
+    //        job.Employ();
+    //        job.LoadDefaultStats();
+
+    //        Point p = new Point((int)levelData.tiles[i].x, (int)levelData.tiles[i].z);
+
+    //        Unit unit = instance.GetComponent<Unit>();
+    //        unit.Place(board.GetTile(p));
+    //        unit.Match();
+
+    //        instance.AddComponent<WalkMovement>();
+
+    //        units.Add(unit);
+
+    //        Rank rank = instance.AddComponent<Rank>();
+    //        rank.Init(10);
+
+    //        instance.AddComponent<Health>();
+    //        instance.AddComponent<Mana>();
+
+    //        instance.name = jobs[i];
+    //    }
+    //}
+
     void SpawnTestUnits()
     {
-        string[] jobs = new string[] { "Rogue", "Warrior", "Wizard" };
-        for (int i = 0; i < jobs.Length; ++i)
+        string[] recipes = new string[]
         {
-            GameObject instance = Instantiate(owner.heroPrefab) as GameObject;
+            "Alaois",
+            "Hania",
+            "Kamau",
+            "Enemy Rogue",
+            "Enemy Warrior",
+            "Enemy Wizard"
+        };
 
-            Stats s = instance.AddComponent<Stats>();
-            s[StatTypes.LVL] = 1;
+        List<Tile> locations = new List<Tile>(board.tiles.Values);
+        for(int i = 0; i < recipes.Length; i++)
+        {
+            int level = UnityEngine.Random.Range(9, 12);
+            GameObject instance = UnitFactory.Create(recipes[i], level);
 
-            GameObject jobPrefab = Resources.Load<GameObject>("Jobs/" + jobs[i]);
-            GameObject jobInstance = Instantiate(jobPrefab) as GameObject;
-            jobInstance.transform.SetParent(instance.transform);
-
-            Job job = jobInstance.GetComponent<Job>();
-            job.Employ();
-            job.LoadDefaultStats();
-
-            Point p = new Point((int)levelData.tiles[i].x, (int)levelData.tiles[i].z);
+            int random = UnityEngine.Random.Range(0, locations.Count);
+            Tile randomTile = locations[random];
+            locations.RemoveAt(random);
 
             Unit unit = instance.GetComponent<Unit>();
-            unit.Place(board.GetTile(p));
+            unit.Place(randomTile);
+            unit.dir = (Directions) UnityEngine.Random.Range(0, 4);
             unit.Match();
 
-            instance.AddComponent<WalkMovement>();
-
             units.Add(unit);
-
-            Rank rank = instance.AddComponent<Rank>();
-            rank.Init(10);
-
-            instance.AddComponent<Health>();
-            instance.AddComponent<Mana>();
-
-            instance.name = jobs[i];
         }
+
+        SelectTile(units[0].tile.pos);
     }
 }
