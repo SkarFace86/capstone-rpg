@@ -11,6 +11,8 @@ public class BattleState : State
     public Transform tileSelectionIndicator { get { return owner.TileSelectionIndicator; } }
     public Point pos { get { return owner.pos; } set { owner.pos = value; } }
 
+    public HitSuccessIndicator hitSuccessIndicator { get { return owner.hitSuccessIndicator; } }
+
     public AbilityMenuPanelController abilityMenuPanelController { get { return
                 owner.abilityMenuPanelController; } }
     public Turn turn { get { return owner.turn; } }

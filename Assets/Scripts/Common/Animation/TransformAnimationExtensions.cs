@@ -4,98 +4,77 @@ using System.Collections;
 
 public static class TransformAnimationExtensions
 {
-	public static Tweener MoveTo (this Transform t, Vector3 position)
+	public static Tweener MoveTo(this Transform t, Vector3 position)
 	{
-		return MoveTo (t, position, Tweener.DefaultDuration);
+		return MoveTo(t, position, Tweener.DefaultDuration);
 	}
-	
-	public static Tweener MoveTo (this Transform t, Vector3 position, float duration)
+
+	public static Tweener MoveTo(this Transform t, Vector3 position, float duration)
 	{
-		return MoveTo (t, position, duration, Tweener.DefaultEquation);
+		return MoveTo(t, position, duration, Tweener.DefaultEquation);
 	}
-	
-	public static Tweener MoveTo (this Transform t, Vector3 position, float duration, Func<float, float, float, float> equation)
+
+	public static Tweener MoveTo(this Transform t, Vector3 position, float duration, Func<float, float, float, float> equation)
 	{
-		TransformPositionTweener tweener = t.gameObject.AddComponent<TransformPositionTweener> ();
-		tweener.startValue = t.position;
-		tweener.endValue = position;
-		tweener.easingControl.duration = duration;
-		tweener.easingControl.equation = equation;
-		tweener.easingControl.Play ();
+		TransformPositionTweener tweener = t.gameObject.AddComponent<TransformPositionTweener>();
+		tweener.startTweenValue = t.position;
+		tweener.endTweenValue = position;
+		tweener.duration = duration;
+		tweener.equation = equation;
+		tweener.Play();
 		return tweener;
 	}
 
-    public static Tweener AnchorTo(this RectTransform t, Vector3 position)
-    {
-        return AnchorTo(t, position, Tweener.DefaultDuration);
-    }
-
-    public static Tweener AnchorTo(this RectTransform t, Vector3 position, float duration)
-    {
-        return AnchorTo(t, position, duration, Tweener.DefaultEquation);
-    }
-
-    public static Tweener AnchorTo(this RectTransform t, Vector3 position, float duration, Func<float, float, float, float> equation)
-    {
-        RectTransformAnchorPositionTweener tweener = t.gameObject.AddComponent<RectTransformAnchorPositionTweener>();
-        tweener.startValue = t.anchoredPosition;
-        tweener.endValue = position;
-        tweener.easingControl.duration = duration;
-        tweener.easingControl.equation = equation;
-        tweener.easingControl.Play();
-        return tweener;
-    }
-
-	public static Tweener MoveToLocal (this Transform t, Vector3 position)
+	public static Tweener MoveToLocal(this Transform t, Vector3 position)
 	{
-		return MoveToLocal (t, position, Tweener.DefaultDuration);
+		return MoveToLocal(t, position, Tweener.DefaultDuration);
 	}
-	
-	public static Tweener MoveToLocal (this Transform t, Vector3 position, float duration)
+
+	public static Tweener MoveToLocal(this Transform t, Vector3 position, float duration)
 	{
-		return MoveToLocal (t, position, duration, Tweener.DefaultEquation);
+		return MoveToLocal(t, position, duration, Tweener.DefaultEquation);
 	}
-	
-	public static Tweener MoveToLocal (this Transform t, Vector3 position, float duration, Func<float, float, float, float> equation)
+
+	public static Tweener MoveToLocal(this Transform t, Vector3 position, float duration, Func<float, float, float, float> equation)
 	{
-		TransformLocalPositionTweener tweener = t.gameObject.AddComponent<TransformLocalPositionTweener> ();
-		tweener.startValue = t.localPosition;
-		tweener.endValue = position;
-		tweener.easingControl.duration = duration;
-		tweener.easingControl.equation = equation;
-		tweener.easingControl.Play ();
+		TransformLocalPositionTweener tweener = t.gameObject.AddComponent<TransformLocalPositionTweener>();
+		tweener.startTweenValue = t.localPosition;
+		tweener.endTweenValue = position;
+		tweener.duration = duration;
+		tweener.equation = equation;
+		tweener.Play();
 		return tweener;
 	}
 
-	public static Tweener RotateToLocal (this Transform t, Vector3 euler, float duration, Func<float, float, float, float> equation)
+	public static Tweener RotateToLocal(this Transform t, Vector3 euler, float duration, Func<float, float, float, float> equation)
 	{
-		TransformLocalEulerTweener tweener = t.gameObject.AddComponent<TransformLocalEulerTweener> ();
-		tweener.startValue = t.localEulerAngles;
-		tweener.endValue = euler;
-		tweener.easingControl.duration = duration;
-		tweener.easingControl.equation = equation;
-		tweener.easingControl.Play ();
+		TransformLocalEulerTweener tweener = t.gameObject.AddComponent<TransformLocalEulerTweener>();
+		tweener.startTweenValue = t.localEulerAngles;
+		tweener.endTweenValue = euler;
+		tweener.duration = duration;
+		tweener.equation = equation;
+		tweener.Play();
 		return tweener;
 	}
-	
-	public static Tweener ScaleTo (this Transform t, Vector3 scale)
+
+	public static Tweener ScaleTo(this Transform t, Vector3 scale)
 	{
-		return MoveTo (t, scale, Tweener.DefaultDuration);
+		return ScaleTo(t, scale, Tweener.DefaultDuration);
 	}
-	
-	public static Tweener ScaleTo (this Transform t, Vector3 scale, float duration)
+
+	public static Tweener ScaleTo(this Transform t, Vector3 scale, float duration)
 	{
-		return MoveTo (t, scale, duration, Tweener.DefaultEquation);
+		return ScaleTo(t, scale, duration, Tweener.DefaultEquation);
 	}
-	
-	public static Tweener ScaleTo (this Transform t, Vector3 scale, float duration, Func<float, float, float, float> equation)
+
+	public static Tweener ScaleTo(this Transform t, Vector3 scale, float duration, Func<float, float, float, float> equation)
 	{
-		TransformScaleTweener tweener = t.gameObject.AddComponent<TransformScaleTweener> ();
-		tweener.startValue = t.localScale;
-		tweener.endValue = scale;
-		tweener.easingControl.duration = duration;
-		tweener.easingControl.equation = equation;
-		tweener.easingControl.Play ();
+		TransformScaleTweener tweener = t.gameObject.AddComponent<TransformScaleTweener>();
+		tweener.startTweenValue = t.localScale;
+		tweener.endTweenValue = scale;
+		tweener.duration = duration;
+		tweener.equation = equation;
+		tweener.Play();
 		return tweener;
 	}
 }

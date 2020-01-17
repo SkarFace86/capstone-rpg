@@ -21,7 +21,7 @@ public class PanelTests : MonoBehaviour
         if (GUI.Button(new Rect(10, 90, 100, 30), Center))
         {
             Tweener t = panel.SetPosition(Center, true);
-            t.easingControl.equation = EasingEquations.EaseInOutBack;
+            t.equation = EasingEquations.EaseInOutBack;
         }
     }
 }

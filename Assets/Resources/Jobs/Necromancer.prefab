@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5197206806011549015}
   - component: {fileID: 7210971976683585182}
   - component: {fileID: 1334474264374530884}
+  - component: {fileID: -3670181761529841665}
+  - component: {fileID: 9008702276142047499}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Untagged
@@ -82,3 +84,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 14
   amount: 2
+--- !u!114 &-3670181761529841665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572570640103107421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882da225eb4e9dc4da5e8f2b7933f31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 10
+  amount: 50
+--- !u!114 &9008702276142047499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572570640103107421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882da225eb4e9dc4da5e8f2b7933f31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 11
+  amount: 50

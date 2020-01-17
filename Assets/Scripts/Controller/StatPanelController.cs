@@ -49,11 +49,11 @@ public class StatPanelController : MonoBehaviour
     {
         if (obj.panel.CurrentPosition != obj.panel[pos])
         {
-            if (t != null && t.easingControl != null)
-                t.easingControl.Stop();
+            if (t != null)
+                t.Stop();
             t = obj.panel.SetPosition(pos, true);
-            t.easingControl.duration = 0.5f;
-            t.easingControl.equation = EasingEquations.EaseOutQuad;
+            t.duration = 0.5f;
+            t.equation = EasingEquations.EaseOutQuad;
         }
     }
     #endregion

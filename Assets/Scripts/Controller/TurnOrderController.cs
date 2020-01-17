@@ -26,6 +26,8 @@ public class TurnOrderController : MonoBehaviour
      */
     private const int actionCost = 200;
 
+    public const string TurnBeganNotification = "TurnOrderController.TurnBeganNotification";
+
     #endregion
 
     #region Notifications
@@ -60,6 +62,7 @@ public class TurnOrderController : MonoBehaviour
                 if (CanTakeTurn(units[i]))
                 {
                     bc.turn.Change(units[i]);
+                    units[i].PostNotification(TurnBeganNotification);
                     yield return units[i];
 
                     int cost = turnCost;

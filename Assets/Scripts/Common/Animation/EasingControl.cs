@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-public class EasingControl : MonoBehaviour 
+public class EasingControl : MonoBehaviour
 {
 	#region Events
 	public event EventHandler updateEvent;
@@ -46,7 +46,7 @@ public class EasingControl : MonoBehaviour
 	public PlayState previousPlayState { get; private set; }
 	public EndBehaviour endBehaviour = EndBehaviour.Constant;
 	public LoopType loopType = LoopType.Repeat;
-	public bool IsPlaying { get { return playState == PlayState.Playing || playState == PlayState.Reversing; }}
+	public bool IsPlaying { get { return playState == PlayState.Playing || playState == PlayState.Reversing; } }
 
 	public float startValue = 0.0f;
 	public float endValue = 1.0f;
@@ -61,147 +61,174 @@ public class EasingControl : MonoBehaviour
 	#endregion
 
 	#region MonoBehaviour
-	void OnEnable ()
+	void OnEnable()
 	{
 		Resume();
 	}
-	
-	void OnDisable ()
+
+	void OnDisable()
 	{
 		Pause();
 	}
 	#endregion
 
 	#region Public
-	public void Play ()
+	public void Play()
 	{
 		SetPlayState(PlayState.Playing);
 	}
-	
-	public void Reverse ()
+
+	public void Reverse()
 	{
 		SetPlayState(PlayState.Reversing);
 	}
-	
-	public void Pause ()
+
+	public void Pause()
 	{
-		SetPlayState(PlayState.Paused);
+		if (IsPlaying)
+			SetPlayState(PlayState.Paused);
 	}
-	
-	public void Resume ()
+
+	public void Resume()
 	{
-		SetPlayState(previousPlayState);
+		if (playState == PlayState.Paused)
+			SetPlayState(previousPlayState);
 	}
-	
-	public void Stop ()
+
+	public void Stop()
 	{
 		SetPlayState(PlayState.Stopped);
+		previousPlayState = PlayState.Stopped;
 		loops = 0;
 		if (endBehaviour == EndBehaviour.Reset)
-			SeekToBeginning ();
+			SeekToBeginning();
 	}
-	
-	public void SeekToTime (float time)
+
+	public void SeekToTime(float time)
 	{
 		currentTime = Mathf.Clamp01(time / duration);
 		float newValue = (endValue - startValue) * currentTime + startValue;
 		currentOffset = newValue - currentValue;
 		currentValue = newValue;
-		
-		if (updateEvent != null)
-			updateEvent(this, EventArgs.Empty);
+		OnUpdate();
 	}
-	
-	public void SeekToBeginning ()
+
+	public void SeekToBeginning()
 	{
 		SeekToTime(0.0f);
 	}
-	
-	public void SeekToEnd ()
+
+	public void SeekToEnd()
 	{
 		SeekToTime(duration);
 	}
 	#endregion
 
-	#region Private
-	void SetPlayState (PlayState target)
+	#region Protected
+	protected virtual void OnUpdate()
 	{
-		if (playState == target)
-			return;
-		
-		previousPlayState = playState;
-		playState = target;
-		
-		if (stateChangeEvent != null)
-			stateChangeEvent(this, EventArgs.Empty);
-		
-		StopCoroutine("Ticker");
-		if (IsPlaying)
-			StartCoroutine("Ticker");
+		if (updateEvent != null)
+			updateEvent(this, EventArgs.Empty);
 	}
 
-	IEnumerator Ticker ()
+	protected virtual void OnLoop()
+	{
+		if (loopedEvent != null)
+			loopedEvent(this, EventArgs.Empty);
+	}
+
+	protected virtual void OnComplete()
+	{
+		if (completedEvent != null)
+			completedEvent(this, EventArgs.Empty);
+	}
+
+	protected virtual void OnStateChange()
+	{
+		if (stateChangeEvent != null)
+			stateChangeEvent(this, EventArgs.Empty);
+	}
+	#endregion
+
+	#region Private
+	void SetPlayState(PlayState target)
+	{
+		if (isActiveAndEnabled)
+		{
+			if (playState == target)
+				return;
+
+			previousPlayState = playState;
+			playState = target;
+			OnStateChange();
+			StopCoroutine("Ticker");
+			if (IsPlaying)
+				StartCoroutine("Ticker");
+		}
+		else
+		{
+			previousPlayState = target;
+			playState = PlayState.Paused;
+		}
+	}
+
+	IEnumerator Ticker()
 	{
 		while (true)
 		{
 			switch (timeType)
 			{
-			case TimeType.Normal:
-				yield return new WaitForEndOfFrame();
-				Tick(Time.deltaTime);
-				break;
-			case TimeType.Real:
-				yield return new WaitForEndOfFrame();
-				Tick(Time.unscaledDeltaTime);
-				break;
-			default: // Fixed
-				yield return new WaitForFixedUpdate();
-				Tick(Time.fixedDeltaTime);
-				break;
+				case TimeType.Normal:
+					yield return new WaitForEndOfFrame();
+					Tick(Time.deltaTime);
+					break;
+				case TimeType.Real:
+					yield return new WaitForEndOfFrame();
+					Tick(Time.unscaledDeltaTime);
+					break;
+				default: // Fixed
+					yield return new WaitForFixedUpdate();
+					Tick(Time.fixedDeltaTime);
+					break;
 			}
 		}
 	}
 
-	void Tick (float time)
+	void Tick(float time)
 	{
 		bool finished = false;
 		if (playState == PlayState.Playing)
 		{
-			currentTime = Mathf.Clamp01( currentTime + (time / duration));
+			currentTime = Mathf.Clamp01(currentTime + (time / duration));
 			finished = Mathf.Approximately(currentTime, 1.0f);
 		}
 		else // Reversing
 		{
-			currentTime = Mathf.Clamp01( currentTime - (time / duration));
+			currentTime = Mathf.Clamp01(currentTime - (time / duration));
 			finished = Mathf.Approximately(currentTime, 0.0f);
 		}
-		
-		float frameValue = (endValue - startValue) * equation (0.0f, 1.0f, currentTime) + startValue;
+
+		float frameValue = (endValue - startValue) * equation(0.0f, 1.0f, currentTime) + startValue;
 		currentOffset = frameValue - currentValue;
 		currentValue = frameValue;
-		
-		if (updateEvent != null)
-			updateEvent(this, EventArgs.Empty);
-		
+		OnUpdate();
+
 		if (finished)
 		{
 			++loops;
-			if (loopCount < 0 || loopCount >= loops) 
+			if (loopCount < 0 || loopCount >= loops)
 			{
-				if (loopType == LoopType.Repeat) 
+				if (loopType == LoopType.Repeat)
 					SeekToBeginning();
 				else // PingPong
-					SetPlayState( playState == PlayState.Playing ? PlayState.Reversing : PlayState.Playing );
-				
-				if (loopedEvent != null)
-					loopedEvent(this, EventArgs.Empty);
-			} 
+					SetPlayState(playState == PlayState.Playing ? PlayState.Reversing : PlayState.Playing);
+
+				OnLoop();
+			}
 			else
 			{
-				if (completedEvent != null)
-					completedEvent(this, EventArgs.Empty);
-				
-				Stop ();
+				OnComplete();
+				Stop();
 			}
 		}
 	}

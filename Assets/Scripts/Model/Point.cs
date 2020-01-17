@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Point
+public struct Point : IEquatable<Point>
 {
     public int x;
     public int y;
@@ -49,6 +50,11 @@ public struct Point
     public bool Equals(Point p)
     {
         return x == p.x && y == p.y;
+    }
+
+    public static implicit operator Vector2(Point p)
+    {
+        return new Vector2(p.x, p.y);
     }
 
     public override int GetHashCode()

@@ -163,6 +163,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4282133724174095488}
   - component: {fileID: 9136838750951375325}
+  - component: {fileID: 3581526781302937757}
+  - component: {fileID: 1632848648874203749}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -199,6 +201,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+--- !u!114 &3581526781302937757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282133724174095491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eb8796424dd2b4fb52aaeda0be652c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1632848648874203749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282133724174095491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925a00ebd5e82db45a1bc08724409528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4282133724397272210
 GameObject:
   m_ObjectHideFlags: 0
