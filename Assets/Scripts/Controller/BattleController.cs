@@ -23,6 +23,11 @@ public class BattleController : StateMachine
     public GameObject heroPrefab;
     public Tile currentTile { get { return board.GetTile(pos); } }
 
+    public FacingIndicator facingIndicator;
+
+    public BattleMessageController battleMessageController;
+    public ComputerPlayer cpu;
+
     public IEnumerator round;
 
     void Start()

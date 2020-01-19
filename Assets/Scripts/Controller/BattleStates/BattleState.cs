@@ -20,15 +20,26 @@ public class BattleState : State
 
     public StatPanelController statPanelController { get { return owner.statPanelController; } }
 
+    protected Driver driver;
+
     protected virtual void Awake()
     {
         owner = GetComponent<BattleController>();
     }
 
+    public override void Enter()
+    {
+        driver = (turn.actor != null) ? turn.actor.GetComponent<Driver>() : null;
+        base.Enter();
+    }
+
     protected override void AddListeners()
     {
-        InputController.moveEvent += OnMove;
-        InputController.fireEvent += OnFire;
+        if (driver == null || driver.Current == Drivers.Human)
+        {
+            InputController.moveEvent += OnMove;
+            InputController.fireEvent += OnFire;
+        }
     }
 
     protected override void RemoveListeners()
@@ -82,5 +93,15 @@ public class BattleState : State
             statPanelController.ShowSecondary(target.gameObject);
         else
             statPanelController.HideSecondary();
+    }
+
+    protected virtual bool DidPlayerWin()
+    {
+        return owner.GetComponent<BaseVictoryCondition>().Victor == Alliances.Hero;
+    }
+
+    protected virtual bool IsBattleOver()
+    {
+        return owner.GetComponent<BaseVictoryCondition>().Victor != Alliances.None;
     }
 }

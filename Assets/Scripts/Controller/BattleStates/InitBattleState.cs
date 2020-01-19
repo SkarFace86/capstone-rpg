@@ -17,9 +17,11 @@ public class InitBattleState : BattleState
         Point p = new Point((int)levelData.tiles[0].x, (int)levelData.tiles[0].z);
         SelectTile(p);
         SpawnTestUnits();
+        AddVictoryCondition();
         owner.round = owner.gameObject.AddComponent<TurnOrderController>().Round();
         yield return null;
-        owner.ChangeState<CutSceneState>();
+        //owner.ChangeState<CutSceneState>();
+        owner.ChangeState<SelectUnitState>();
     }
 
     //void SpawnTestUnits()
@@ -72,11 +74,15 @@ public class InitBattleState : BattleState
             "Enemy Wizard"
         };
 
+        GameObject unitContainer = new GameObject("Units");
+        unitContainer.transform.SetParent(owner.transform);
+
         List<Tile> locations = new List<Tile>(board.tiles.Values);
         for(int i = 0; i < recipes.Length; i++)
         {
             int level = UnityEngine.Random.Range(9, 12);
             GameObject instance = UnitFactory.Create(recipes[i], level);
+            instance.transform.SetParent(unitContainer.transform);
 
             int random = UnityEngine.Random.Range(0, locations.Count);
             Tile randomTile = locations[random];
@@ -91,5 +97,14 @@ public class InitBattleState : BattleState
         }
 
         SelectTile(units[0].tile.pos);
+    }
+
+    void AddVictoryCondition()
+    {
+        DefeatTargetVictoryCondition vc = owner.gameObject.AddComponent<DefeatTargetVictoryCondition>();
+        Unit enemy = units[units.Count - 1];
+        vc.target = enemy;
+        Health health = enemy.GetComponent<Health>();
+        health.minHP = 10;
     }
 }

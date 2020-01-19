@@ -15,6 +15,7 @@ MonoBehaviour:
   model: Undead Hero
   job: Warrior
   attack: Attack
-  abilityCatalog: White Magic
+  abilityCatalog: Alaois
+  strategy: 
   locomotion: 0
   alliance: 2

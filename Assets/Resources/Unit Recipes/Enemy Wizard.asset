@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24eb7fd6389a744e9f650f49dd5c981, type: 3}
   m_Name: Enemy Wizard
   m_EditorClassIdentifier: 
-  model: Monster
+  model: Boss Monster
   job: Wizard
   attack: Attack
-  abilityCatalog: White Magic
+  abilityCatalog: Enemy Wizard
+  strategy: Wizard Attack Pattern
   locomotion: 1
   alliance: 4

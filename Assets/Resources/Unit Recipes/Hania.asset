@@ -16,5 +16,6 @@ MonoBehaviour:
   job: Wizard
   attack: Attack
   abilityCatalog: Sagacity Skill
+  strategy: 
   locomotion: 1
   alliance: 2

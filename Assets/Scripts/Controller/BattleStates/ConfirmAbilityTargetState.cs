@@ -17,12 +17,18 @@ public class ConfirmAbilityTargetState : BattleState
 		FindTargets();
 		RefreshPrimaryStatPanel(turn.actor.tile.pos);
 
-		if (turn.targets.Count > 0)
-		{
-            hitSuccessIndicator.Show();
-			SetTarget(0);
+        if (turn.targets.Count > 0)
+        {
+			// Only show this UI for Human controlled units
+            if (driver.Current == Drivers.Human)
+                hitSuccessIndicator.Show();
+            SetTarget(0);
         }
-	}
+
+		// Only show this UI for AI controlled units
+        if (driver.Current == Drivers.Computer)
+            StartCoroutine(ComputerDisplayAbilitySelection());
+    }
 
 	public override void Exit()
 	{
@@ -68,7 +74,7 @@ public class ConfirmAbilityTargetState : BattleState
 		for (int i = 0; i < obj.childCount; ++i)
 		{
 			AbilityEffectTarget targeter = obj.GetChild(i).GetComponent<AbilityEffectTarget>();
-			if (targeter.IsTarget(tile))
+			if (turn.ability.IsTarget(tile))
 				return true;
 		}
 		return false;
@@ -112,4 +118,11 @@ public class ConfirmAbilityTargetState : BattleState
 
 		hitSuccessIndicator.SetStats(chance, amount);
 	}
+
+    IEnumerator ComputerDisplayAbilitySelection()
+    {
+        owner.battleMessageController.Display(turn.ability.name);
+        yield return new WaitForSeconds(2f);
+        owner.ChangeState<PerformAbilityState>();
+    }
 }

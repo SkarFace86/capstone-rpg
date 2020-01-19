@@ -15,4 +15,5 @@ MonoBehaviour:
   categories:
   - name: Sagacity Skill
     entries:
-    - FireBall
+    - Blind
+    - Fire Ball

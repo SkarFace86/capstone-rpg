@@ -15,6 +15,7 @@ MonoBehaviour:
   model: Monster
   job: Warrior
   attack: Attack
-  abilityCatalog: White Magic
+  abilityCatalog: Enemy Warrior
+  strategy: Warrior Attack Pattern
   locomotion: 0
   alliance: 4

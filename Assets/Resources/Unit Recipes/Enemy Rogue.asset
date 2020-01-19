@@ -15,6 +15,7 @@ MonoBehaviour:
   model: Monster
   job: Rogue
   attack: Attack
-  abilityCatalog: White Magic
-  locomotion: 0
+  abilityCatalog: Enemy Rogue
+  strategy: Rogue Attack Pattern
+  locomotion: 2
   alliance: 4

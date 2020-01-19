@@ -103,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 2098461925473617600, guid: 48cde43e87cb1394192d42c69848ddac,
         type: 3}
       propertyPath: m_Name
-      value: Necromancer
+      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 2098461925473917664, guid: 48cde43e87cb1394192d42c69848ddac,
         type: 3}

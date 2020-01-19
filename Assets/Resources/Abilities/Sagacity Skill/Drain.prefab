@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5094255333846772104}
   - component: {fileID: 4505733808523284934}
   - component: {fileID: 57795871690510424}
-  - component: {fileID: 5204371305573098468}
+  - component: {fileID: 3674619112301371539}
   m_Layer: 0
   m_Name: Drain
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586210b16daed654c931654e3d537940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 7
+  amount: 15
 --- !u!114 &4505733808523284934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfda58d11f36565408f831c1c13bb1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 20
+  level: 50
 --- !u!114 &57795871690510424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 4
   vertical: 2147483647
---- !u!114 &5204371305573098468
+--- !u!114 &3674619112301371539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 445553976223612415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e957f3822b6f14447a3eb0797a4136a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b4767c178c7f374d99de4837f68cce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3177610952458652390

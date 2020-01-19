@@ -79,10 +79,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6560350483766358469}
   - component: {fileID: 7774569799850360139}
-  - component: {fileID: 3745384916399394478}
   - component: {fileID: 1017018960078110734}
-  - component: {fileID: 4241795213190910764}
-  - component: {fileID: 60877044779638574}
+  - component: {fileID: 1787001685540188944}
+  - component: {fileID: 4919305844866717128}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -117,19 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c687801f352b6445a78cf0822c81ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3745384916399394478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2942949614866829304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586210b16daed654c931654e3d537940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amount: 0
 --- !u!114 &1017018960078110734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5210d2f4c16737a46b360fba0299a7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
---- !u!114 &4241795213190910764
+  level: 200
+--- !u!114 &1787001685540188944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 1
   vertical: 2147483647
---- !u!114 &60877044779638574
+--- !u!114 &4919305844866717128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,5 +155,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300169343c528fd44a5c53b7e023f525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 1
-  vertical: 1
+  horizontal: 0
+  vertical: 0

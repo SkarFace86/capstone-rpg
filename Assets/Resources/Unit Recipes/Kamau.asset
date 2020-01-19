@@ -16,5 +16,6 @@ MonoBehaviour:
   job: Rogue
   attack: Attack
   abilityCatalog: Sagacity Skill
-  locomotion: 0
+  strategy: 
+  locomotion: 2
   alliance: 2
