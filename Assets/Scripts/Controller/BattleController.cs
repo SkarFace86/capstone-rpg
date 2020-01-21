@@ -25,6 +25,7 @@ public class BattleController : StateMachine
 
     public FacingIndicator facingIndicator;
 
+    public PopupDamageController popupDamageController;
     public BattleMessageController battleMessageController;
     public ComputerPlayer cpu;
 

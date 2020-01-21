@@ -41,11 +41,6 @@ public class ComputerPlayer : MonoBehaviour
 
         // Step 2: Determine where to move and aim to best use the ability
         //PlaceHolderCode(poa);
-        Debug.Log("IsPositionIndependent: " + IsPositionIndependent(poa));
-        Debug.Log("IsDirectionIndependent: " + IsDirectionIndependent(poa));
-        Debug.Log("PlanDirectionDependent");
-
-
         if (IsPositionIndependent(poa))
             PlanPositionIndependent(poa);
         else if (IsDirectionIndependent(poa))

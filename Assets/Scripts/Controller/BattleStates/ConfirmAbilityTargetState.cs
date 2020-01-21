@@ -121,7 +121,7 @@ public class ConfirmAbilityTargetState : BattleState
 
     IEnumerator ComputerDisplayAbilitySelection()
     {
-        owner.battleMessageController.Display(turn.ability.name);
+        owner.battleMessageController.DisplayAbilityName(turn.ability.name);
         yield return new WaitForSeconds(2f);
         owner.ChangeState<PerformAbilityState>();
     }

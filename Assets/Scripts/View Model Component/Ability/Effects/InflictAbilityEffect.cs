@@ -15,6 +15,7 @@ public class InflictAbilityEffect : BaseAbilityEffect
 
     protected override int OnApply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
         Type statusType = Type.GetType(statusName);
         if (statusType == null || !statusType.IsSubclassOf(typeof(StatusEffect)))
         {
@@ -31,6 +32,8 @@ public class InflictAbilityEffect : BaseAbilityEffect
 
         DurationStatusCondition condition = retValue as DurationStatusCondition;
         condition.duration = duration;
+        bc.popupDamageController.DisplayAbilityDamage(statusName.ToString(), target.content.GetComponent<Unit>());
+
         return 0;
     }
 }

@@ -42,6 +42,7 @@ public class AbsorbDamageAbilityEffect : BaseAbilityEffect
 
     protected override int OnApply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
         Stats s = GetComponentInParent<Stats>();
         s[StatTypes.HP] += amount;
         return amount;

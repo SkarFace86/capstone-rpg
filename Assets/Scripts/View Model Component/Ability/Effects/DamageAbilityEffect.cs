@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class DamageAbilityEffect : BaseAbilityEffect
 {
     #region Public
+
     public override int Predict(Tile target)
     {
         Unit attacker = GetComponentInParent<Unit>();
@@ -40,6 +41,7 @@ public class DamageAbilityEffect : BaseAbilityEffect
 
     protected override int OnApply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
         Unit defender = target.content.GetComponent<Unit>();
 
         // Start with the predicted damage value
@@ -54,7 +56,17 @@ public class DamageAbilityEffect : BaseAbilityEffect
         // Apply the damage to the target
         Stats s = defender.GetComponent<Stats>();
         s[StatTypes.HP] += value;
+        bc.popupDamageController.DisplayAbilityDamage(value.ToString(), defender);
+        //StartCoroutine(Sequence(value, defender));
+
         return value;
     }
+
     #endregion
+
+    //IEnumerator Sequence(int value, Unit defender)
+    //{
+    //    bc.popupDamageController.DisplayAbilityDamage(value.ToString(), defender);
+    //    yield return new WaitForSeconds(1);
+    //}
 }

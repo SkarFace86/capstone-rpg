@@ -13,6 +13,7 @@ public class HealAbilityEffect : BaseAbilityEffect
 
     protected override int OnApply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
         Unit defender = target.content.GetComponent<Unit>();
 
         // Start with the predicted value
@@ -27,6 +28,8 @@ public class HealAbilityEffect : BaseAbilityEffect
         // Apply the amound to the target
         Stats s = defender.GetComponent<Stats>();
         s[StatTypes.HP] += value;
+        bc.popupDamageController.DisplayAbilityHeal(value.ToString(), defender);
+
         return value;
     }
 }

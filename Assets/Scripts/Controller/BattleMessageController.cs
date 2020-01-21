@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BattleMessageController : MonoBehaviour
 {
-    [SerializeField] private Text label;
+    [SerializeField] private Text abilityName;
     [SerializeField] private GameObject canvas;
     [SerializeField] private CanvasGroup group;
     private EasingControl ec;
@@ -20,11 +20,11 @@ public class BattleMessageController : MonoBehaviour
         ec.updateEvent += OnUpdateEvent;
     }
 
-    public void Display(string message)
+    public void DisplayAbilityName(string message)
     {
         group.alpha = 0;
         canvas.SetActive(true);
-        label.text = message;
+        abilityName.text = message;
         StartCoroutine(Sequence());
     }
 

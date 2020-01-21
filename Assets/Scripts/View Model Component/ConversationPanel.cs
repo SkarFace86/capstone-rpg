@@ -24,7 +24,7 @@ public class ConversationPanel : MonoBehaviour
     public IEnumerator Display(SpeakerData sd)
     {
         speaker.sprite = sd.speaker;
-        speaker.SetNativeSize();
+        //speaker.SetNativeSize();
 
         for (int i = 0; i < sd.messages.Count; i++)
         {

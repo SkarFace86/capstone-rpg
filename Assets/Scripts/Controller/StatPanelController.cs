@@ -5,6 +5,7 @@ using UnityEngine;
 public class StatPanelController : MonoBehaviour
 {
     #region Const
+
     const string ShowKey = "Show";
     const string HideKey = "Hide";
     #endregion
@@ -14,7 +15,9 @@ public class StatPanelController : MonoBehaviour
 
     Tweener primaryTransition;
     Tweener secondaryTransition;
+
     #endregion
+
     #region MonoBehaviour
     void Start()
     {

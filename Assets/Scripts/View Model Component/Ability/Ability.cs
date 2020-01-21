@@ -23,6 +23,7 @@ public class Ability : MonoBehaviour
             return;
         }
 
+        // Perform the ability on all selected units
         for (int i = 0; i < targets.Count; i++)
             Perform(targets[i]);
 

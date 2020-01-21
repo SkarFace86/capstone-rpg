@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1986011676768328727}
   - component: {fileID: 9013473877352066568}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Ability Name Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8240762538610347031}
   - component: {fileID: 8240762538610347030}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Ability Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb963a38e4ed0c45ab7d906c3b9aa3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: {fileID: 8240762538610347030}
+  abilityName: {fileID: 8240762538610347030}
   canvas: {fileID: 8240762540468991127}
   group: {fileID: 2522066707260353662}
 --- !u!1 &8240762540468991127
@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8240762540468991124
 RectTransform:
   m_ObjectHideFlags: 0

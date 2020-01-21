@@ -14,6 +14,7 @@ public class ReviveAbilityEffect : BaseAbilityEffect
 
     protected override int OnApply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
         Stats s = target.content.GetComponent<Stats>();
         int value = s[StatTypes.HP] = Predict(target);
         return value;

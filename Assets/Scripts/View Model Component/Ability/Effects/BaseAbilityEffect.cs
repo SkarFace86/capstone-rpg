@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public abstract class BaseAbilityEffect : MonoBehaviour
 {
+    protected BattleController bc;
+
     #region Consts & Notifications
+
     protected const int minDamage = -999;
     protected const int maxDamage = 999;
 
@@ -15,24 +18,37 @@ public abstract class BaseAbilityEffect : MonoBehaviour
 
     public const string MissedNotification = "BaseAbilityEffect.MissedNotification";
     public const string HitNotification = "BaseAbilityEffect.HitNotification";
+
     #endregion
 
     #region Public
+
     public abstract int Predict(Tile target);
 
     public void Apply(Tile target)
     {
+        bc = target.content.GetComponentInParent<BattleController>();
+        Unit defender = target.content.GetComponent<Unit>();
+
         if (GetComponent<AbilityEffectTarget>().IsTarget(target) == false)
             return;
 
         if (GetComponent<HitRate>().RollForHit(target))
-            this.PostNotification(HitNotification, OnApply(target));
+        {
+            int damage = OnApply(target);
+            this.PostNotification(HitNotification, damage);
+        }
         else
+        {
+            bc.popupDamageController.DisplayAbilityDamage("Miss", defender);
             this.PostNotification(MissedNotification);
+        }
     }
+
     #endregion
 
     #region Protected
+
     protected abstract int OnApply(Tile target);
 
     protected virtual int GetStat(Unit attacker, Unit target, string notification, int startValue)
@@ -55,5 +71,6 @@ public abstract class BaseAbilityEffect : MonoBehaviour
     {
         return x.sortOrder.CompareTo(y.sortOrder);
     }
+
     #endregion
 }

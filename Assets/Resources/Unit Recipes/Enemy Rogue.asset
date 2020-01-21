@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24eb7fd6389a744e9f650f49dd5c981, type: 3}
   m_Name: Enemy Rogue
   m_EditorClassIdentifier: 
-  model: Monster
+  model: Monster With Sword
   job: Rogue
   attack: Attack
   abilityCatalog: Enemy Rogue

@@ -3,9 +3,12 @@ using System.Collections;
 
 public class PerformAbilityState : BattleState
 {
+    private Animation anim;
+
     public override void Enter()
     {
         base.Enter();
+        anim = turn.actor.GetComponentInChildren<Animation>();
         turn.hasUnitActed = true;
         if (turn.hasUnitMoved)
             turn.lockMove = true;
@@ -15,9 +18,15 @@ public class PerformAbilityState : BattleState
     IEnumerator Animate()
     {
         // TODO play animations, etc
-        yield return null;
+        turn.actor.dir = owner.cpu.DetermineEndFacingDirection();
+        turn.actor.Match();
+        Debug.Log(anim);
+        anim.Play("Sword_Attack");
+        yield return new WaitForSeconds(2);
+        anim.Stop();
         ApplyAbility();
 
+        yield return new WaitForSeconds(2f);
         if (IsBattleOver())
         {
             //owner.ChangeState<CutSceneState>();
