@@ -15,7 +15,7 @@ MonoBehaviour:
   model: Undead Hero
   job: Rogue
   attack: Attack
-  abilityCatalog: Sagacity Skill
+  abilityCatalog: Alaois
   strategy: 
   locomotion: 2
   alliance: 2

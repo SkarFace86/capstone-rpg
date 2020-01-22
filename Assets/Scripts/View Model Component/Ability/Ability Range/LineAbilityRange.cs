@@ -12,7 +12,7 @@ public class LineAbilityRange : AbilityRange
         Point endPos;
         List<Tile> retValue = new List<Tile>();
 
-        // change this so horizontal or vertical in instead of board.max
+        // change this to horizontal or vertical in instead of board.max
         switch (unit.dir)
         {
             case Directions.North:

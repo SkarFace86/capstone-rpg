@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ConstantAbilityRange : AbilityRange
 {
+    //public override bool directionOriented { get { return true; } }
+
     public override List<Tile> GetTilesInRange(Board board)
     {
         return board.Search(unit.tile, ExpandSearch);

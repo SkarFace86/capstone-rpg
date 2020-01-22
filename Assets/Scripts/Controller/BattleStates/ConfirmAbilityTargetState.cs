@@ -41,9 +41,9 @@ public class ConfirmAbilityTargetState : BattleState
 
 	protected override void OnMove(object sender, InfoEventArgs<Point> e)
 	{
-		if (e.info.y > 0 || e.info.x > 0)
-			SetTarget(index + 1);
-		else
+        if (e.info.y > 0 || e.info.x > 0)
+            SetTarget(index + 1);
+        else
 			SetTarget(index - 1);
 	}
 
