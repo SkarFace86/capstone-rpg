@@ -33,7 +33,7 @@ public class TurnOrderController : MonoBehaviour
     #region Notifications
 
     public const string RoundBeganNotification = "TurnOrderController.roundBegan";
-    public const string TurnCheckNotification = "TurnOrderController.TurnCheck";
+    public const string TurnCheckNotification = "TurnOrderController.turnCheck";
     public const string TurnCompletedNotification = "TurnOrderController.turnCompleted";
     public const string RoundEndedNotification = "TurnOrderController.roundEnded";
 
@@ -88,13 +88,17 @@ public class TurnOrderController : MonoBehaviour
 
     bool CanTakeTurn(Unit target)
     {
+        Alliance a = target.GetComponentInChildren<Alliance>();
         // OPTIONAL === Add this bit to skip the player turns so you can just watch
-        //Alliance a = target.GetComponentInChildren<Alliance>();
+
         //if (a.type == Alliances.Hero)
         //    return false;
-        // === END OPTIONAL
 
+        // OPTIONAL === Add this bit to skip the Computer turns so only the player is playing
+        //if (a.type == Alliances.Enemy) 
+        //    return false;
 
+        // END OPTIONAL
         BaseException exc = new BaseException(GetCounter(target) >= turnActivation);
         target.PostNotification(TurnCheckNotification, exc);
         return exc.toggle;

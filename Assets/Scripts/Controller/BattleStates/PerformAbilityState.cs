@@ -20,10 +20,10 @@ public class PerformAbilityState : BattleState
         // TODO play animations, etc
         //turn.actor.dir = owner.cpu.DetermineEndFacingDirection();
         //turn.actor.Match();
-        //Debug.Log(anim);
-        //anim.Play("Sword_Attack");
-        //yield return new WaitForSeconds(2);
-        //anim.Stop();
+        Debug.Log(anim);
+        anim.Play("Judgement_Attack");
+        yield return new WaitForSeconds(2);
+        anim.Stop();
         ApplyAbility();
 
         yield return new WaitForSeconds(2f);

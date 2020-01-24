@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8231342205276433773}
   - component: {fileID: 4582157122077059118}
   - component: {fileID: 2353237039695193123}
+  - component: {fileID: 2104766727461996620}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -96,6 +97,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &2104766727461996620
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228107240839089201}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: ddb6b80e91e804447bb9dffe89d09f1e, type: 2}
+  - {fileID: 7400000, guid: 5671ff50016842b4cb847244ecad6b32, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1801381020527918551
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +577,7 @@ Transform:
   - {fileID: 3892492325811760709}
   m_Father: {fileID: 5474080712620591951}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -27.756, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 90}
 --- !u!111 &3834962905979947584
 Animation:
   m_ObjectHideFlags: 0
@@ -572,6 +590,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 2ebd1b9d577987e42b991fa4207b1e38, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 2ebd1b9d577987e42b991fa4207b1e38, type: 2}
+  - {fileID: 0}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

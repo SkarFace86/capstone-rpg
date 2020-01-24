@@ -18,7 +18,7 @@ public class StatPanel : MonoBehaviour
     {
         Alliance alliance = obj.GetComponent<Alliance>();
         background.sprite = alliance.type == Alliances.Enemy ? enemyBackground : allyBackground;
-        // avatar.sprite = null; Need a component which provides this data
+        avatar.sprite = obj.GetComponent<Image>().sprite; // Need a component which provides this data
         nameLabel.text = obj.name;
         Stats stats = obj.GetComponent<Stats>();
         if (stats)

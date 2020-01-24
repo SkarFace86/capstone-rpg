@@ -15,7 +15,8 @@ MonoBehaviour:
   model: Undead Hero
   job: Rogue
   attack: Attack
-  abilityCatalog: Alaois
+  abilityCatalog: Kamau
   strategy: 
   locomotion: 2
   alliance: 2
+  avatar: {fileID: 2451880982034744689, guid: aff4e5195b927654db678e96716b4018, type: 3}

@@ -18,8 +18,8 @@ public class WalkMovement : Movement
     public override IEnumerator Traverse(Tile tile)
     {
         unit.Place(tile);
-        if (anim != null)
-            anim.Play("Walk");
+        //if (anim != null)
+        //    anim.Play("Walk");
         // Build a list of way points from the unit's 
         // starting tile to the destination tile
         List<Tile> targets = new List<Tile>();
@@ -42,8 +42,8 @@ public class WalkMovement : Movement
                 yield return StartCoroutine(Jump(to));
         }
 
-        if (anim != null)
-            anim.Play("Idle1");
+        //if (anim != null)
+        //    anim.Play("Idle1");
         yield return null;
     }
     IEnumerator Walk(Tile target)

@@ -19,3 +19,4 @@ MonoBehaviour:
   strategy: 
   locomotion: 1
   alliance: 2
+  avatar: {fileID: 2451880982034744689, guid: aff4e5195b927654db678e96716b4018, type: 3}

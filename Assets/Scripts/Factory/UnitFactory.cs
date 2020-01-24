@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class UnitFactory
 {
@@ -30,6 +32,7 @@ public static class UnitFactory
         AddRank(obj, level);
         obj.AddComponent<Health>();
         obj.AddComponent<Mana>();
+        AddImage(obj, recipe.avatar);
         AddAttack(obj, recipe.attack);
         AddAbilityCatalog(obj, recipe.abilityCatalog);
         AddAlliance(obj, recipe.alliance);
@@ -142,5 +145,11 @@ public static class UnitFactory
             GameObject instance = InstantiatePrefab("Attack Pattern/" + name);
             instance.transform.SetParent(obj.transform);
         }
+    }
+
+    static void AddImage(GameObject obj, Image image)
+    {
+        Image img = obj.AddComponent<Image>();
+        img.sprite = image.sprite;
     }
 }

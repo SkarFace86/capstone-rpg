@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitRecipe : ScriptableObject
 {
@@ -11,4 +13,5 @@ public class UnitRecipe : ScriptableObject
     public string strategy;
     public Locomotions locomotion;
     public Alliances alliance;
+    public Image avatar;
 }
