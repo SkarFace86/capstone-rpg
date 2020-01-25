@@ -6,13 +6,17 @@ using UnityEngine.UIElements;
 public class AbilityTargetState : BattleState
 {
     private List<Tile> tiles;
+    private List<Tile> attackTiles;
     private AbilityRange ar;
+    private AbilityArea aa;
 
     public override void Enter()
     {
         base.Enter();
         ar = turn.ability.GetComponent<AbilityRange>();
+        aa = turn.ability.GetComponent<AbilityArea>();
         SelectTiles();
+        SelectAttackTiles();
         statPanelController.ShowPrimary(turn.actor.gameObject);
         if (ar.directionOriented)
         {
@@ -26,19 +30,24 @@ public class AbilityTargetState : BattleState
     {
         base.Exit();
         board.DeSelectTiles(tiles);
+        board.DeSelectTiles(attackTiles);
         statPanelController.HidePrimary();
         statPanelController.HideSecondary();
     }
 
     protected override void OnMove(object sender, InfoEventArgs<Point> e)
     {
+        board.DeSelectTiles(attackTiles);
         if (ar.directionOriented)
         {
             ChangeDirection(e.info);
         }
         else
         {
+            SelectTiles();
             SelectTile(e.info + pos);
+            if(tiles.Contains(board.GetTile(pos)))
+                SelectAttackTiles();
             RefreshSecondaryStatPanel(pos);
 
             // Work on this to get the unit to look at the target
@@ -67,14 +76,20 @@ public class AbilityTargetState : BattleState
             board.DeSelectTiles(tiles);
             turn.actor.dir = dir;
             turn.actor.Match();
-            SelectTiles();
         }
+        SelectAttackTiles();
     }
 
     void SelectTiles()
     {
         tiles = ar.GetTilesInRange(board);
         board.SelectTiles(tiles);
+    }
+
+    void SelectAttackTiles()
+    {
+        attackTiles = aa.GetTilesInArea(board, pos);
+        board.SelectAttackTiles(attackTiles);
     }
 
     IEnumerator ComputerHighlightTarget()

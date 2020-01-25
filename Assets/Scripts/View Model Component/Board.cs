@@ -9,7 +9,8 @@ public class Board : MonoBehaviour
     [SerializeField] private GameObject tilePrefab;
     public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
 
-    Color selectedTileColor = new Color(0, 1, 1, 1);
+    Color selectedTileColor = new Color(0, 0.5f, 1, 1);
+    Color attackTileColor = new Color(1, 0, 0, 1);
     Color defaultTileColor = new Color(1, 1, 1, 1);
 
     Point[] dirs = new Point[4]
@@ -98,6 +99,12 @@ public class Board : MonoBehaviour
     {
         for (int i = tiles.Count - 1; i >= 0; --i)
             tiles[i].GetComponent<Renderer>().material.SetColor("_Color", selectedTileColor);
+    }
+
+    public void SelectAttackTiles(List<Tile> tiles)
+    {
+        for (int i = tiles.Count - 1; i >= 0; i--)
+            tiles[i].GetComponent<Renderer>().material.SetColor("_Color", attackTileColor);
     }
     public void DeSelectTiles(List<Tile> tiles)
     {

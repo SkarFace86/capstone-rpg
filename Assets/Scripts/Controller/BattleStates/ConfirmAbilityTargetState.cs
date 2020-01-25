@@ -13,7 +13,7 @@ public class ConfirmAbilityTargetState : BattleState
 		base.Enter();
 		aa = turn.ability.GetComponent<AbilityArea>();
 		tiles = aa.GetTilesInArea(board, pos);
-		board.SelectTiles(tiles);
+		board.SelectAttackTiles(tiles);
 		FindTargets();
 		RefreshPrimaryStatPanel(turn.actor.tile.pos);
 

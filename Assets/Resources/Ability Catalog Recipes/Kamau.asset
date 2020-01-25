@@ -15,7 +15,11 @@ MonoBehaviour:
   categories:
   - name: Sagacity Skill
     entries:
+    - Fire Blast
     - Blind
   - name: Assassin
     entries:
     - Blade Wave
+  - name: Element
+    entries:
+    - Raise Earth

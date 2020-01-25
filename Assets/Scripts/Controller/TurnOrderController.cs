@@ -95,8 +95,8 @@ public class TurnOrderController : MonoBehaviour
         //    return false;
 
         // OPTIONAL === Add this bit to skip the Computer turns so only the player is playing
-        //if (a.type == Alliances.Enemy) 
-        //    return false;
+        if (a.type == Alliances.Enemy)
+            return false;
 
         // END OPTIONAL
         BaseException exc = new BaseException(GetCounter(target) >= turnActivation);
