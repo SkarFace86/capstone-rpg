@@ -92,7 +92,7 @@ public class ConfirmAbilityTargetState : BattleState
 		{
 			RefreshSecondaryStatPanel(turn.targets[index].pos);
 			UpdateHitSuccessIndicator();
-		}
+        }
 	}
 
 	void UpdateHitSuccessIndicator()

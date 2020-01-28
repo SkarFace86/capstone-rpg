@@ -23,3 +23,6 @@ MonoBehaviour:
   - name: Element
     entries:
     - Raise Earth
+  - name: Archer
+    entries:
+    - Arrow

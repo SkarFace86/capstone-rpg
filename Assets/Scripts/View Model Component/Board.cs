@@ -83,6 +83,43 @@ public class Board : MonoBehaviour
         return retValue;
     }
 
+    public List<Tile> Search(Tile start, int minDistance, Func<Tile, Tile, bool> addTile)
+    {
+        List<Tile> retValue = new List<Tile>();
+
+        ClearSearch();
+        Queue<Tile> checkNext = new Queue<Tile>();
+        Queue<Tile> checkNow = new Queue<Tile>();
+
+        start.distance = 0;
+        checkNow.Enqueue(start);
+
+        while (checkNow.Count > 0)
+        {
+            Tile t = checkNow.Dequeue();
+            for (int i = 0; i < 4; i++)
+            {
+                Tile next = GetTile(t.pos + dirs[i]);
+                if (next == null || next.distance <= t.distance + 1)
+                    continue;
+
+                if (addTile(t, next))
+                {
+                    next.distance = t.distance + 1;
+                    next.prev = t;
+                    checkNext.Enqueue(next);
+                    Debug.Log("next.distance: " + next.distance);
+                    if(next.distance >= minDistance)
+                        retValue.Add(next);
+                }
+            }
+            if (checkNow.Count == 0)
+                SwapReference(ref checkNow, ref checkNext);
+        }
+
+        return retValue;
+    }
+
     public Tile GetTile(Point p)
     {
         return tiles.ContainsKey(p) ? tiles[p] : null;
