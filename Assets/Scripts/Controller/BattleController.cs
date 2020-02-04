@@ -8,7 +8,7 @@ public class BattleController : StateMachine
     public CameraRig cameraRig;
     public Board board;
     public LevelData levelData;
-    public Transform TileSelectionIndicator;
+    public Transform tileSelectionIndicator;
     public Point pos;
 
     public AbilityMenuPanelController abilityMenuPanelController;
@@ -33,6 +33,7 @@ public class BattleController : StateMachine
 
     void Start()
     {
-        ChangeState<InitBattleState>();
+        ChangeState<PlaceUnitsState>();
+        //ChangeState<InitBattleState>();
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
 
 public class PopupDamageController : MonoBehaviour

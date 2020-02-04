@@ -8,7 +8,7 @@ public class BattleState : State
     public CameraRig cameraRig { get { return owner.cameraRig; } }
     public Board board { get { return owner.board; } }
     public LevelData levelData { get { return owner.levelData; } }
-    public Transform tileSelectionIndicator { get { return owner.TileSelectionIndicator; } }
+    public Transform tileSelectionIndicator { get { return owner.tileSelectionIndicator; } }
     public Point pos { get { return owner.pos; } set { owner.pos = value; } }
 
     public HitSuccessIndicator hitSuccessIndicator { get { return owner.hitSuccessIndicator; } }

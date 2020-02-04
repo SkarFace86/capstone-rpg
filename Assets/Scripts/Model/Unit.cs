@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour
 
     public void Match()
     {
-        halfExtents = gameObject.transform.GetChild(0).GetChild(0).localScale.y;
+        //halfExtents = gameObject.transform.GetChild(0).GetChild(0).localScale.y;
         //transform.localPosition = tile.center + new Vector3(0, halfExtents, 0);
         transform.localPosition = tile.center;
         transform.localEulerAngles = dir.ToEuler();
