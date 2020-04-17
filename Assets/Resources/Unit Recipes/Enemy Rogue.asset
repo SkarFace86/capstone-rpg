@@ -17,6 +17,6 @@ MonoBehaviour:
   attack: Attack
   abilityCatalog: Enemy Rogue
   strategy: Rogue Attack Pattern
-  locomotion: 2
+  locomotion: 1
   alliance: 4
   avatar: {fileID: 4121484575378490548, guid: 4b9cf674d1b2ceb4da3f7b0523345571, type: 3}

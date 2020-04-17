@@ -12,16 +12,16 @@ public class MenuButtons : State
         
     }
 
-    //public void LoadStartScene()
-    //{
-    //    Debug.Log(SceneManager.GetSceneAt(0).name);
-    //    StartCoroutine(StartScreenTransition("Battle"));
-    //}
+    public void LoadStartScene()
+    {
+        Debug.Log(SceneManager.GetSceneAt(0).name);
+        StartCoroutine(StartScreenTransition("Battle"));
+    }
 
-    //IEnumerator StartScreenTransition(string name)
-    //{
-    //    SceneManager.LoadScene(name);
+    IEnumerator StartScreenTransition(string name)
+    {
+        SceneManager.LoadScene(name);
 
-    //    yield return new WaitForSeconds(0.5);
-    //}
+        yield return new WaitForSeconds(0.5f);
+    }
 }

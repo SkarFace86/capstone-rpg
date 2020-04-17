@@ -18,13 +18,14 @@ public class PerformAbilityState : BattleState
     IEnumerator Animate()
     {
         // TODO play animations, etc
-        //turn.actor.dir = owner.cpu.DetermineEndFacingDirection();
-        //turn.actor.Match();
-        //Debug.Log(anim);
-        //anim.Play("Judgement_Attack");
+        Animation anim = turn.actor.GetComponentInChildren<Animation>();
+        if (anim)
+            anim.Play("Attack");
         yield return new WaitForSeconds(2);
-        //anim.Stop();
+        
         ApplyAbility();
+        if (anim)
+            anim.Play("Idle");
 
         yield return new WaitForSeconds(2f);
         if (IsBattleOver())

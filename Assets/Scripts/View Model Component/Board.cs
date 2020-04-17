@@ -8,6 +8,7 @@ public class Board : MonoBehaviour
 {
     [SerializeField] private GameObject tilePrefab;
     public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
+    private BattleController owner;
 
     Color selectedTileColor = new Color(0, 0.5f, 1, 1);
     Color attackTileColor = new Color(1, 0, 0, 1);
@@ -32,6 +33,7 @@ public class Board : MonoBehaviour
         _min = new Point(int.MaxValue, int.MaxValue);
         _max = new Point(int.MinValue, int.MinValue);
 
+        // Place tiles
         for (int i = 0; i < data.tiles.Count; ++i)
         {
             GameObject instance = Instantiate(tilePrefab) as GameObject;
@@ -44,6 +46,37 @@ public class Board : MonoBehaviour
             _min.y = Mathf.Min(_min.y, t.pos.y);
             _max.x = Mathf.Max(_max.x, t.pos.x);
             _max.y = Mathf.Max(_max.y, t.pos.y);
+        }
+
+        // Place units
+        owner = GetComponentInParent<BattleController>();
+        GameObject unitContainer = new GameObject("NPC Units");
+        unitContainer.transform.SetParent(owner.transform);
+
+        for (int i = 0; i < data.nonPlayerCharacters.Count; ++i)
+        {
+            // Create gameobject based on the unit recipe
+            GameObject obj = UnitFactory.Create(data.nonPlayerCharacters[i].unitRecipe, data.nonPlayerCharacters[i].level);
+            /*
+             * They are not active, we could change this so that they become active
+             * after the player has placed his units
+             */
+            //obj.SetActive(false);
+
+            obj.transform.SetParent(unitContainer.transform);
+            
+            // Get tile point
+            Point point = new Point(data.nonPlayerCharacters[i].x, data.nonPlayerCharacters[i].y);
+            // Search the dictionary for the Tile with 'point'
+            Tile tile;
+            if (!tiles.TryGetValue(point, out tile))
+                return;
+            // Get unit
+            Unit unit = obj.GetComponent<Unit>();
+            owner.units.Add(unit);
+            unit.Place(tile);
+            unit.dir = Directions.North;
+            unit.Match();
         }
     }
 

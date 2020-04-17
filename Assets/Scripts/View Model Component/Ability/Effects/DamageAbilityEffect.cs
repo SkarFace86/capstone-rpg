@@ -10,7 +10,6 @@ public class DamageAbilityEffect : BaseAbilityEffect
     {
         Unit attacker = GetComponentInParent<Unit>();
         Unit defender = target.content.GetComponent<Unit>();
-
         // Get the attackers base attack stat considering
         // mission items, support check, status check, and equipment, etc
         int attack = GetStat(attacker, defender, GetAttackNotification, 0);
@@ -56,6 +55,9 @@ public class DamageAbilityEffect : BaseAbilityEffect
         // Apply the damage to the target
         Stats s = defender.GetComponent<Stats>();
         s[StatTypes.HP] += value;
+        Debug.Log(bc);
+        Debug.Log(value.ToString());
+        Debug.Log(defender);
         bc.popupDamageController.DisplayAbilityDamage(value.ToString(), defender);
         //StartCoroutine(Sequence(value, defender));
 

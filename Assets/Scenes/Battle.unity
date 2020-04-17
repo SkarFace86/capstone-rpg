@@ -300,6 +300,7 @@ Transform:
   - {fileID: 2104502175}
   - {fileID: 323122974}
   - {fileID: 2173017150052718800}
+  - {fileID: 908416766}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRig: {fileID: 1500789327}
   board: {fileID: 908416765}
-  levelData: {fileID: 11400000, guid: fa6ce9a1fa30352458a5610c16f270ee, type: 2}
+  levelData: {fileID: 11400000, guid: a4eca1c304d73ac42976b3e54d4d070c, type: 2}
   tileSelectionIndicator: {fileID: 969011519}
   pos:
     x: 0
@@ -509,8 +510,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 599341305}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &969011518
 PrefabInstance:

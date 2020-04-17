@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab51a08b4ccca7044a8950e2563a3f45, type: 3}
+  m_Name: Level test with NPC
+  m_EditorClassIdentifier: 
+  tiles:
+  - {x: 6, y: 3, z: 5}
+  - {x: 7, y: 3, z: 5}
+  - {x: 8, y: 3, z: 5}
+  - {x: 9, y: 3, z: 5}
+  - {x: 6, y: 3, z: 6}
+  - {x: 7, y: 3, z: 6}
+  - {x: 8, y: 3, z: 6}
+  - {x: 9, y: 3, z: 6}
+  - {x: 6, y: 3, z: 7}
+  - {x: 7, y: 3, z: 7}
+  - {x: 8, y: 3, z: 7}
+  - {x: 9, y: 2, z: 7}
+  - {x: 6, y: 3, z: 1}
+  - {x: 7, y: 3, z: 1}
+  - {x: 8, y: 3, z: 1}
+  - {x: 9, y: 3, z: 1}
+  - {x: 6, y: 2, z: 2}
+  - {x: 7, y: 3, z: 2}
+  - {x: 8, y: 3, z: 2}
+  - {x: 9, y: 3, z: 2}
+  - {x: 6, y: 3, z: 3}
+  - {x: 7, y: 3, z: 3}
+  - {x: 8, y: 3, z: 3}
+  - {x: 9, y: 3, z: 3}
+  - {x: 6, y: 3, z: 4}
+  - {x: 7, y: 3, z: 4}
+  - {x: 8, y: 3, z: 4}
+  - {x: 9, y: 3, z: 4}
+  - {x: 2, y: 3, z: 5}
+  - {x: 3, y: 3, z: 5}
+  - {x: 4, y: 3, z: 5}
+  - {x: 5, y: 3, z: 5}
+  - {x: 6, y: 3, z: 9}
+  - {x: 2, y: 1, z: 0}
+  - {x: 3, y: 1, z: 0}
+  - {x: 4, y: 1, z: 0}
+  - {x: 2, y: 3, z: 1}
+  - {x: 3, y: 2, z: 1}
+  - {x: 4, y: 3, z: 1}
+  - {x: 2, y: 3, z: 2}
+  - {x: 3, y: 2, z: 2}
+  - {x: 4, y: 2, z: 2}
+  - {x: 2, y: 3, z: 3}
+  - {x: 3, y: 3, z: 3}
+  - {x: 4, y: 3, z: 3}
+  - {x: 2, y: 3, z: 4}
+  - {x: 3, y: 3, z: 4}
+  - {x: 4, y: 3, z: 4}
+  - {x: 2, y: 3, z: 6}
+  - {x: 3, y: 3, z: 6}
+  - {x: 4, y: 3, z: 6}
+  - {x: 2, y: 3, z: 7}
+  - {x: 3, y: 3, z: 7}
+  - {x: 4, y: 3, z: 7}
+  - {x: 2, y: 3, z: 8}
+  - {x: 3, y: 3, z: 8}
+  - {x: 4, y: 3, z: 8}
+  - {x: 5, y: 2, z: 3}
+  - {x: 5, y: 3, z: 4}
+  - {x: 5, y: 3, z: 8}
+  - {x: 2, y: 3, z: 9}
+  - {x: 6, y: 3, z: 8}
+  - {x: 7, y: 3, z: 8}
+  - {x: 8, y: 3, z: 8}
+  - {x: 5, y: 3, z: 6}
+  - {x: 5, y: 3, z: 7}
+  - {x: 3, y: 3, z: 9}
+  - {x: 4, y: 3, z: 9}
+  - {x: 5, y: 3, z: 9}
+  - {x: 0, y: 1, z: 4}
+  - {x: 1, y: 2, z: 4}
+  - {x: 0, y: 2, z: 5}
+  - {x: 1, y: 3, z: 5}
+  - {x: 0, y: 2, z: 6}
+  - {x: 1, y: 3, z: 6}
+  - {x: 0, y: 3, z: 7}
+  - {x: 1, y: 3, z: 7}
+  - {x: 0, y: 3, z: 8}
+  - {x: 1, y: 3, z: 8}
+  - {x: 1, y: 3, z: 9}
+  - {x: 7, y: 3, z: 0}
+  - {x: 7, y: 3, z: 9}
+  - {x: 5, y: 2, z: 1}
+  - {x: 8, y: 3, z: 0}
+  - {x: 8, y: 3, z: 9}
+  - {x: 9, y: 2, z: 9}
+  - {x: 0, y: 2, z: 9}
+  - {x: 9, y: 1, z: 0}
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: 2}
+  - {x: 1, y: 1, z: 3}
+  - {x: 5, y: 1, z: 2}
+  - {x: 5, y: 1, z: 0}
+  nonPlayerCharacters:
+  - unitMesh: {fileID: 4801031631267202933, guid: dfce1552dbf19db479ca0ef979285a73,
+      type: 3}
+    unitRecipe: {fileID: 11400000, guid: da0bdaa79575c344ea8c4b45fbc35d93, type: 2}
+    level: 1
+    x: 5
+    y: 6
+  - unitMesh: {fileID: 3934517451559130107, guid: 3cdd81f227a9e124c999ef531aa65121,
+      type: 3}
+    unitRecipe: {fileID: 11400000, guid: 866902c3e82e2c44584e8b3ee1258965, type: 2}
+    level: 10
+    x: 5
+    y: 0

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 013ee0a8b56bacd44b928eab033163af
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 19300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -323,7 +323,7 @@ ModelImporter:
     second: All
   - first:
       74: 7400002
-    second: Idle1
+    second: Idle
   - first:
       74: 7400004
     second: Idle2
@@ -338,7 +338,7 @@ ModelImporter:
     second: Up
   - first:
       74: 7400012
-    second: Walk
+    second: Move
   - first:
       74: 7400014
     second: Run
@@ -356,7 +356,7 @@ ModelImporter:
     second: Attack
   - first:
       74: 7400024
-    second: Death1
+    second: Death
   - first:
       74: 7400026
     second: Death2
@@ -369,9 +369,19 @@ ModelImporter:
   - first:
       137: 13700000
     second: necromancer
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: necromancer
+    second: {fileID: 2100000, guid: 39a70a9f84898314f8a05a946ed3e627, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: staff_skull
+    second: {fileID: 2100000, guid: f2c05e207892a8c4099d2ebbc4e860b2, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -427,7 +437,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle1
+      name: Idle
       takeName: Take 001
       internalID: 0
       firstFrame: 0
@@ -572,7 +582,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
+      name: Move
       takeName: Take 001
       internalID: 0
       firstFrame: 471
@@ -746,7 +756,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death1
+      name: Death
       takeName: Take 001
       internalID: 0
       firstFrame: 1021
@@ -841,7 +851,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -859,8 +868,10 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 1
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 1
   userData: 
   assetBundleName: 

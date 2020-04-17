@@ -26,7 +26,7 @@ public class PlaceUnitsState : BattleState
             "Kamau"
         };
 
-        GameObject unitContainer = new GameObject("Units");
+        GameObject unitContainer = new GameObject("Friendly Units");
         unitContainer.transform.SetParent(owner.transform);
 
         List<Tile> locations = new List<Tile>(board.tiles.Values);

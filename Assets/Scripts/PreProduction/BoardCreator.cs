@@ -8,6 +8,7 @@ public class BoardCreator : MonoBehaviour
 {
     [SerializeField] private GameObject tileViewPrefab;
     [SerializeField] private GameObject tileSelectionIndicatorPrefab;
+    [SerializeField] private List<NPCData> nonPlayerCharacters;
 
     Transform marker {
         get {
@@ -167,9 +168,15 @@ public class BoardCreator : MonoBehaviour
             CreateSaveDirectory();
 
         LevelData board = ScriptableObject.CreateInstance<LevelData>();
+        // Get tiles
         board.tiles = new List<Vector3>(tiles.Count);
         foreach (Tile t in tiles.Values)
             board.tiles.Add(new Vector3(t.pos.x, t.height, t.pos.y));
+
+        // Get units
+        board.nonPlayerCharacters = new List<NPCData>(nonPlayerCharacters.Count);
+        foreach (NPCData data in nonPlayerCharacters)
+            board.nonPlayerCharacters.Add(data);
 
         string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, name);
         AssetDatabase.CreateAsset(board, fileName);

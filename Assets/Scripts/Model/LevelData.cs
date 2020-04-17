@@ -5,4 +5,5 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public List<Vector3> tiles;
+    public List<NPCData> nonPlayerCharacters;
 }
