@@ -20,8 +20,7 @@ public class Tile : MonoBehaviour
      * Returns the center of the tile at the top, allowing you to put things
      * on top of the tile 
      */
-    public Vector3 center
-    {
+    public Vector3 center {
         get { return new Vector3(pos.x, height * stepHeight, pos.y); }
     }
 
@@ -63,6 +62,6 @@ public class Tile : MonoBehaviour
 
     public void Load(Vector3 v)
     {
-        Load(new Point((int) v.x, (int) v.z), (int) v.y);
+        Load(new Point((int)v.x, (int)v.z), (int)v.y);
     }
 }

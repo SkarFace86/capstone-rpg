@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24eb7fd6389a744e9f650f49dd5c981, type: 3}
-  m_Name: Kamau
+  m_Name: Viking King
   m_EditorClassIdentifier: 
-  model: Assassin
-  job: Rogue
+  model: Warrior
+  job: Warrior
   attack: Attack
-  abilityCatalog: Kamau
+  abilityCatalog: Warrior
   strategy: 
   locomotion: 0
   alliance: 2
-  avatar: {fileID: 2451880982034744689, guid: aff4e5195b927654db678e96716b4018, type: 3}
+  avatar: {fileID: 2451880982034744689, guid: d2e576b5acb40444eb96321f0cabfdb9, type: 3}

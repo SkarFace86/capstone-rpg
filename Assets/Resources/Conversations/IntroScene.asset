@@ -14,24 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - messages:
-    - Be scared... Cause I am awesome!!!
-    - And Scary!!!
-    speaker: {fileID: -2411078748178230296, guid: 3cc7b34b80192764386f5c6a8bf3ff54,
-      type: 3}
+    - You'll never be able to defeat us all!
+    speaker: {fileID: 21300000, guid: e7364b323af56944297ffd39ee7057fb, type: 3}
     anchor: 2
   - messages:
-    - You're scared aren't you?
-    speaker: {fileID: 7799303452296018324, guid: 3cc7b34b80192764386f5c6a8bf3ff54,
-      type: 3}
-    anchor: 2
+    - You should just surrender now.
+    speaker: {fileID: 21300000, guid: 0da21e5e392bab14bb3c9be35a869bb1, type: 3}
+    anchor: 8
   - messages:
-    - Nope. Not really.
-    - Let's just get this over with.
-    speaker: {fileID: -5438131565516237280, guid: 155d25bf567b5564784e58b2a5997374,
-      type: 3}
+    - I'll defeat you with your own army...
+    speaker: {fileID: 21300000, guid: 752d2c599abce534190cce40fad180df, type: 3}
     anchor: 6
   - messages:
-    - Oh... well... hmm...
-    speaker: {fileID: -7839063486855099544, guid: 3cc7b34b80192764386f5c6a8bf3ff54,
-      type: 3}
-    anchor: 2
+    - You won't even see me coming.
+    speaker: {fileID: 21300000, guid: c0acc74a4e83063438e4ebe61620febe, type: 3}
+    anchor: 0
+  - messages:
+    - AAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!!!!!!!!
+    speaker: {fileID: 21300000, guid: 4308a0fc20fd1554ba07e82f3d182382, type: 3}
+    anchor: 6

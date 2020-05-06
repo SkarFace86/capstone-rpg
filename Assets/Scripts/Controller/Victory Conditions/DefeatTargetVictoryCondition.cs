@@ -9,7 +9,8 @@ public class DefeatTargetVictoryCondition : BaseVictoryCondition
     protected override void CheckForGameOver()
     {
         base.CheckForGameOver();
-        if (Victor == Alliances.None && IsDefeated(target))
+        if (Victor == Alliances.None && IsDefeated(target)) {
             Victor = Alliances.Hero;
+        }
     }
 }

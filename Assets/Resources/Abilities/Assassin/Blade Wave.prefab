@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586210b16daed654c931654e3d537940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 15
+  amount: 10
 --- !u!114 &8525676930241096150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5210d2f4c16737a46b360fba0299a7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 120
 --- !u!114 &8749124234437516993
 MonoBehaviour:
   m_ObjectHideFlags: 0

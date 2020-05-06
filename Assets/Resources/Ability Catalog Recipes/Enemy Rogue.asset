@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Rogue
   m_EditorClassIdentifier: 
   categories:
-  - name: Sagacity Skill
+  - name: Black Magic
     entries:
     - Drain
     - Blind

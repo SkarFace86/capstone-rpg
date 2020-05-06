@@ -40,7 +40,7 @@ public abstract class BaseAbilityEffect : MonoBehaviour
         }
         else
         {
-            bc.popupDamageController.DisplayAbilityDamage("Miss", defender);
+            bc.popupDamageController.DisplayCombatText("Miss", defender, Color.red);
             this.PostNotification(MissedNotification);
         }
     }

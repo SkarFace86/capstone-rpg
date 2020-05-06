@@ -107,15 +107,15 @@ MonoBehaviour:
   - {x: 5, y: 1, z: 2}
   - {x: 5, y: 1, z: 0}
   nonPlayerCharacters:
-  - unitMesh: {fileID: 4801031631267202933, guid: dfce1552dbf19db479ca0ef979285a73,
-      type: 3}
-    unitRecipe: {fileID: 11400000, guid: da0bdaa79575c344ea8c4b45fbc35d93, type: 2}
-    level: 1
-    x: 5
-    y: 6
-  - unitMesh: {fileID: 3934517451559130107, guid: 3cdd81f227a9e124c999ef531aa65121,
-      type: 3}
-    unitRecipe: {fileID: 11400000, guid: 866902c3e82e2c44584e8b3ee1258965, type: 2}
-    level: 10
-    x: 5
-    y: 0
+  - unitRecipe: {fileID: 11400000, guid: da0bdaa79575c344ea8c4b45fbc35d93, type: 2}
+    level: 5
+    x: 8
+    y: 9
+  - unitRecipe: {fileID: 11400000, guid: 866902c3e82e2c44584e8b3ee1258965, type: 2}
+    level: 3
+    x: 7
+    y: 7
+  - unitRecipe: {fileID: 11400000, guid: 866902c3e82e2c44584e8b3ee1258965, type: 2}
+    level: 3
+    x: 6
+    y: 9

@@ -6,61 +6,23 @@ using UnityEngine.UI;
 
 public class PopupDamageController : MonoBehaviour
 {
-    [SerializeField] private Text abilityDamage;
-    [SerializeField] private Text abilityHeal;
     [SerializeField] private GameObject canvas;
-    [SerializeField] private CameraRig cameraRig;
-    private Camera camera;
+    [SerializeField] private GameObject combatText;
 
-    void Start()
+    public void DisplayCombatText(string amount, Unit target, Color color)
     {
-        abilityDamage.text = "";
-        abilityHeal.text = "";
-        camera = cameraRig.GetComponentInChildren<Camera>();
+        GameObject obj = Instantiate(combatText, canvas.transform);
+        Text ct = obj.GetComponent<Text>();
+        ct.text = amount;
+        ct.color = color;
+        ct.rectTransform.position = Camera.main.WorldToScreenPoint(target.transform.position);
+        StartCoroutine(Sequence(obj));
     }
 
-    public void DisplayAbilityDamage(string amount, Unit defender)
-    {
-        canvas.SetActive(true);
-        abilityDamage.text = amount;
-        abilityDamage.rectTransform.position = camera.WorldToScreenPoint(defender.transform.position);
-        StartCoroutine(Sequence(amount, null, defender, null));
-    }
-
-    public void DisplayAbilityHeal(string amount, Unit target)
-    {
-        canvas.SetActive(true);
-        abilityHeal.text = amount;
-        abilityHeal.rectTransform.position = camera.WorldToScreenPoint(target.transform.position);
-        //StartCoroutine(Sequence());
-    }
-
-    public void DisplayAbilityAborb(string amount, Unit defender, Unit attacker)
-    {
-        canvas.SetActive(true);
-        abilityDamage.text = amount;
-        abilityDamage.rectTransform.position = camera.WorldToScreenPoint(defender.transform.position);
-
-        abilityHeal.text = amount;
-        abilityHeal.rectTransform.position = camera.WorldToScreenPoint(attacker.transform.position);
-        //StartCoroutine(Sequence());
-    }
-
-    public void DisplayAbilityStatusEffect(string message, Unit target)
-    {
-        canvas.SetActive(true);
-        abilityDamage.text = message;
-        abilityDamage.rectTransform.position = camera.WorldToScreenPoint(target.transform.position);
-        //StartCoroutine(Sequence());
-    }
-
-    IEnumerator Sequence(string targetMessage, string selfMessage, Unit targetUnit, Unit selfUnit)
+    IEnumerator Sequence(GameObject obj)
     {
         yield return new WaitForSeconds(1.5f);
 
-        abilityDamage.text = "";
-        abilityHeal.text = "";
-
-        canvas.SetActive(false);
+        Destroy(obj);
     }
 }

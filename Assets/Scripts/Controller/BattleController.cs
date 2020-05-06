@@ -33,7 +33,7 @@ public class BattleController : StateMachine
 
     void Start()
     {
-        ChangeState<PlaceUnitsState>();
-        //ChangeState<InitBattleState>();
+        //ChangeState<PlaceUnitsState>();
+        ChangeState<InitBattleState>();
     }
 }

@@ -32,7 +32,7 @@ public class InflictAbilityEffect : BaseAbilityEffect
 
         DurationStatusCondition condition = retValue as DurationStatusCondition;
         condition.duration = duration;
-        bc.popupDamageController.DisplayAbilityDamage(statusName.ToString(), target.content.GetComponent<Unit>());
+        bc.popupDamageController.DisplayCombatText(statusName.ToString(), target.content.GetComponent<Unit>(), Color.yellow);
 
         return 0;
     }

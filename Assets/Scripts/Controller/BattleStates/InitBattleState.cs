@@ -16,10 +16,11 @@ public class InitBattleState : BattleState
         board.Load(levelData);
         Point p = new Point((int)levelData.tiles[0].x, (int)levelData.tiles[0].z);
         SelectTile(p);
-        SpawnTestUnits();
-        AddVictoryCondition();
+        //SpawnTestUnits();
+        AddVictoryCondition(); // Need to add now for cutscene to work. destroy and add another later.
         owner.round = owner.gameObject.AddComponent<TurnOrderController>().Round();
         yield return null;
+
         owner.ChangeState<CutSceneState>();
         //owner.ChangeState<SelectUnitState>();
     }
@@ -28,9 +29,9 @@ public class InitBattleState : BattleState
     {
         string[] recipes = new string[]
         {
-            "Alaois",
-            "Hania",
-            "Kamau",
+            "Necro Man, Sir",
+            "Miss Terry",
+            "Viking King",
             "Enemy Rogue",
             "Enemy Warrior",
             "Enemy Wizard"
@@ -63,10 +64,11 @@ public class InitBattleState : BattleState
 
     void AddVictoryCondition()
     {
-        DefeatTargetVictoryCondition vc = owner.gameObject.AddComponent<DefeatTargetVictoryCondition>();
-        Unit enemy = units[units.Count - 1];
-        vc.target = enemy;
-        Health health = enemy.GetComponent<Health>();
-        health.minHP = 10;
+        DefeatAllEnemiesVictoryCondition vc = owner.gameObject.AddComponent<DefeatAllEnemiesVictoryCondition>();
+        //DefeatTargetVictoryCondition vc = owner.gameObject.AddComponent<DefeatTargetVictoryCondition>();
+        //Unit enemy = units[units.Count - 1];
+        //vc.target = enemy;
+        //Health health = enemy.GetComponent<Health>();
+        //health.minHP = 10;
     }
 }

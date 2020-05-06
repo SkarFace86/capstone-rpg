@@ -75,7 +75,7 @@ public class Board : MonoBehaviour
             Unit unit = obj.GetComponent<Unit>();
             owner.units.Add(unit);
             unit.Place(tile);
-            unit.dir = Directions.North;
+            unit.dir = Directions.South;
             unit.Match();
         }
     }

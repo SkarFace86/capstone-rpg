@@ -10,19 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c26cbf5a574c0ff4e97f9633575c1d77, type: 3}
-  m_Name: Kamau
+  m_Name: Rogue Assassin
   m_EditorClassIdentifier: 
   categories:
-  - name: Sagacity Skill
-    entries:
-    - Fire Blast
-    - Blind
   - name: Assassin
     entries:
     - Blade Wave
-  - name: Element
-    entries:
-    - Raise Earth
-  - name: Archer
-    entries:
-    - Arrow

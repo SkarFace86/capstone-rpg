@@ -15,15 +15,16 @@ public class PlaceUnitsState : BattleState
 
     IEnumerator Init()
     {
-        board.Load(levelData);
-        Point p = new Point((int) levelData.tiles[0].x, (int) levelData.tiles[0].z);
-        SelectTile(p);
+        //board.Load(levelData);
+        //Point p = new Point((int)levelData.tiles[0].x, (int)levelData.tiles[0].z);
+        //SelectTile(p);
+        //AddVictoryCondition();
 
         string[] recipes = new string[]
         {
-            "Alaois",
-            "Hania",
-            "Kamau"
+            "Viking King",
+            "Necro Man, Sir",
+            "Miss Terry"
         };
 
         GameObject unitContainer = new GameObject("Friendly Units");
@@ -43,15 +44,24 @@ public class PlaceUnitsState : BattleState
             units.Add(unit);
             placeUnits.Enqueue(unit);
         }
+        // Destroy victory condition and add another for it to work
+        Destroy(owner.GetComponent<DefeatAllEnemiesVictoryCondition>());
+        AddVictoryCondition();
 
         while (placeUnits.Count > 0)
         {
+            //for (int i = 0; i < placeUnits.Count; i++) {
+            //    placeUnits.Peek().gameObject.SetActive(true);
+            //    Unit unit = placeUnits.Peek();
+            //    unit.Place(board.GetTile(pos));
+            //    unit.Match();
+            //    yield return null;
+            //}
             yield return null;
         }
 
         SelectTile(units[0].tile.pos);
 
-        AddVictoryCondition();
         owner.round = owner.gameObject.AddComponent<TurnOrderController>().Round();
         yield return null;
         owner.ChangeState<SelectUnitState>();
@@ -60,15 +70,21 @@ public class PlaceUnitsState : BattleState
     protected override void OnMove(object sender, InfoEventArgs<Point> e)
     {
         SelectTile(e.info + pos);
+        //Unit unit = placeUnits.Peek();
+        //unit.Place(board.GetTile(pos));
+        //unit.Match();
     }
 
     protected override void OnFire(object sender, InfoEventArgs<int> e)
-    {
-        Unit unit = placeUnits.Dequeue();
-        unit.Place(board.GetTile(pos));
-        unit.dir = (Directions) UnityEngine.Random.Range(0, 4);
-        unit.Match();
-        unit.gameObject.SetActive(true);
+    { 
+        Tile tile = board.GetTile(pos);
+        if (tile.content == null) {
+            Unit unit = placeUnits.Dequeue();
+            unit.Place(board.GetTile(pos));
+            unit.dir = (Directions)UnityEngine.Random.Range(0, 4);
+            unit.Match();
+            unit.gameObject.SetActive(true);
+        }
     }
 
     void AddVictoryCondition()

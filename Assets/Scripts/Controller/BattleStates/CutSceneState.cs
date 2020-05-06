@@ -60,6 +60,6 @@ public class CutSceneState : BattleState
         if (IsBattleOver())
             owner.ChangeState<EndBattleState>();
         else
-            owner.ChangeState<SelectUnitState>();
+            owner.ChangeState<PlaceUnitsState>();
     }
 }

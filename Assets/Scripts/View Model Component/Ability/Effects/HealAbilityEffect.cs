@@ -28,7 +28,7 @@ public class HealAbilityEffect : BaseAbilityEffect
         // Apply the amound to the target
         Stats s = defender.GetComponent<Stats>();
         s[StatTypes.HP] += value;
-        bc.popupDamageController.DisplayAbilityHeal(value.ToString(), defender);
+        bc.popupDamageController.DisplayCombatText(value.ToString(), defender, Color.green);
 
         return value;
     }

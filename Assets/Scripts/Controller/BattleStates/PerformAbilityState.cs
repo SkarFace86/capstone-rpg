@@ -4,7 +4,6 @@ using System.Collections;
 public class PerformAbilityState : BattleState
 {
     private Animation anim;
-
     public override void Enter()
     {
         base.Enter();
@@ -18,7 +17,6 @@ public class PerformAbilityState : BattleState
     IEnumerator Animate()
     {
         // TODO play animations, etc
-        Animation anim = turn.actor.GetComponentInChildren<Animation>();
         if (anim)
             anim.Play("Attack");
         yield return new WaitForSeconds(2);
@@ -30,8 +28,8 @@ public class PerformAbilityState : BattleState
         yield return new WaitForSeconds(2f);
         if (IsBattleOver())
         {
-            //owner.ChangeState<CutSceneState>();
-            Debug.Log("GAME OVER");
+            owner.ChangeState<CutSceneState>();
+            //Debug.Log("GAME OVER");
         }
         else if (!UnitHasControl())
             owner.ChangeState<SelectUnitState>();

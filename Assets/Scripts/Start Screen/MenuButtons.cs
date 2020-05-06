@@ -12,10 +12,10 @@ public class MenuButtons : State
         
     }
 
-    public void LoadStartScene()
+    public void LoadStartScene(string scenename)
     {
         Debug.Log(SceneManager.GetSceneAt(0).name);
-        StartCoroutine(StartScreenTransition("Battle"));
+        StartCoroutine(StartScreenTransition(scenename));
     }
 
     IEnumerator StartScreenTransition(string name)

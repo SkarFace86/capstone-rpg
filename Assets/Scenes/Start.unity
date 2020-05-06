@@ -199,13 +199,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54810475}
-  m_LocalRotation: {x: 0.13276125, y: -0.16949211, z: 0.023048783, w: 0.97627646}
-  m_LocalPosition: {x: 24.55, y: 8.48, z: -189.9}
+  m_LocalRotation: {x: -0.06495781, y: 0.1424468, z: 0.019808453, w: 0.98747003}
+  m_LocalPosition: {x: -164.9, y: 15.5, z: -234.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15.488001, y: -19.698002, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.488001, y: -19.69, z: 0}
 --- !u!114 &54810479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,10 +227,11 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54810475}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: b60def44ce4d9cb47aae3883a618ad25, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b60def44ce4d9cb47aae3883a618ad25, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -806,17 +807,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 749000771}
-        m_MethodName: BeginSelectCharacter
-        m_Mode: 1
+      - m_Target: {fileID: 749000770}
+        m_MethodName: LoadStartScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Battle
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &641877563
 MonoBehaviour:
   m_ObjectHideFlags: 0

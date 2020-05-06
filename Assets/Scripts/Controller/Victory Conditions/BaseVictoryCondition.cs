@@ -41,6 +41,7 @@ public abstract class BaseVictoryCondition : MonoBehaviour
         if (health)
             return health.minHP == health.HP;
 
+        Debug.Log("Health got here");
         Stats stats = unit.GetComponent<Stats>();
         return stats[StatTypes.HP] == 0;
     }

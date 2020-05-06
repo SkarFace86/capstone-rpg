@@ -55,10 +55,7 @@ public class DamageAbilityEffect : BaseAbilityEffect
         // Apply the damage to the target
         Stats s = defender.GetComponent<Stats>();
         s[StatTypes.HP] += value;
-        Debug.Log(bc);
-        Debug.Log(value.ToString());
-        Debug.Log(defender);
-        bc.popupDamageController.DisplayAbilityDamage(value.ToString(), defender);
+        bc.popupDamageController.DisplayCombatText(value.ToString(), defender, Color.red);
         //StartCoroutine(Sequence(value, defender));
 
         return value;
