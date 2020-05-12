@@ -90,12 +90,12 @@ public class TurnOrderController : MonoBehaviour
     {
         Alliance a = target.GetComponentInChildren<Alliance>();
         // OPTIONAL === Add this bit to skip the player turns so you can just watch
-        //if (a.type == Alliances.Hero)
-        //    return false;
+        if (a.type == Alliances.Hero)
+            return false;
 
         //OPTIONAL === Add this bit to skip the Computer turns so only the player is playing
-        if (a.type == Alliances.Enemy)
-            return false;
+        //if (a.type == Alliances.Enemy)
+        //    return false;
 
         // END OPTIONAL
         BaseException exc = new BaseException(GetCounter(target) >= turnActivation);

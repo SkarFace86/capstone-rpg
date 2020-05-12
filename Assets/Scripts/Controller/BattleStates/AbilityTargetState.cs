@@ -112,9 +112,9 @@ public class AbilityTargetState : BattleState
                 turn.actor.transform.LookAt(tileSelectionIndicator);
                 yield return new WaitForSeconds(0.25f);
             }
-
-            yield return new WaitForSeconds(0.5f);
-            owner.ChangeState<ConfirmAbilityTargetState>();
         }
+
+        yield return new WaitForSeconds(0.5f);
+        owner.ChangeState<ConfirmAbilityTargetState>();
     }
 }

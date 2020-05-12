@@ -6,7 +6,7 @@ public class TileAbilityEffectTarget : AbilityEffectTarget
 {
     public override bool IsTarget(Tile tile)
     {
-        if (tile == null)
+        if (tile == null && !(tile.content == null))
             return false;
 
         return true;

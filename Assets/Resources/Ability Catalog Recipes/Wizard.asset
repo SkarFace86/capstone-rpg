@@ -20,6 +20,7 @@ MonoBehaviour:
     entries:
     - Fire Ball
     - Fire Blast
+    - Blind
   - name: Element
     entries:
     - Raise Earth

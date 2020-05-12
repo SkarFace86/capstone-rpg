@@ -5,6 +5,7 @@ using System.Reflection;
 
 public class InflictAbilityEffect : BaseAbilityEffect
 {
+    public string combatTextName;
     public string statusName;
     public int duration;
 
@@ -32,7 +33,7 @@ public class InflictAbilityEffect : BaseAbilityEffect
 
         DurationStatusCondition condition = retValue as DurationStatusCondition;
         condition.duration = duration;
-        bc.popupDamageController.DisplayCombatText(statusName.ToString(), target.content.GetComponent<Unit>(), Color.yellow);
+        bc.popupDamageController.DisplayCombatText(combatTextName.ToString(), target.content.GetComponent<Unit>(), Color.yellow);
 
         return 0;
     }

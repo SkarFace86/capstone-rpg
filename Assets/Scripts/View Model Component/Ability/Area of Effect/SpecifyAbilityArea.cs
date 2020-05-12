@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpecifyAbilityArea : AbilityArea
 {
-    public int horizontal;
-    public int vertical;
+    public int horizontal = 1;
+    public int vertical = int.MaxValue;
     private Tile tile;
 
     public override List<Tile> GetTilesInArea(Board board, Point pos)

@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098461925473917664}
-  - component: {fileID: 2098461925466791774}
+  - component: {fileID: 4801737906151101443}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Untagged
@@ -530,25 +530,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &2098461925466791774
-Animation:
+--- !u!95 &4801737906151101443
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098461925473617600}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400012, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400022, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  - {fileID: 7400024, guid: 013ee0a8b56bacd44b928eab033163af, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aed35a569b5f8f145b8ca6d10c44b2f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2098461925473617602
 GameObject:
   m_ObjectHideFlags: 0

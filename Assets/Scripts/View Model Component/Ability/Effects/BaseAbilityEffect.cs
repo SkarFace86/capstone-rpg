@@ -27,9 +27,6 @@ public abstract class BaseAbilityEffect : MonoBehaviour
 
     public void Apply(Tile target)
     {
-        bc = target.content.GetComponentInParent<BattleController>();
-        Unit defender = target.content.GetComponent<Unit>();
-
         if (GetComponent<AbilityEffectTarget>().IsTarget(target) == false)
             return;
 
@@ -40,6 +37,8 @@ public abstract class BaseAbilityEffect : MonoBehaviour
         }
         else
         {
+            bc = target.content.GetComponentInParent<BattleController>();
+            Unit defender = target.content.GetComponent<Unit>();
             bc.popupDamageController.DisplayCombatText("Miss", defender, Color.red);
             this.PostNotification(MissedNotification);
         }

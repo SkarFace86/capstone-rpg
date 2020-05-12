@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PerformAbilityState : BattleState
 {
-    private Animation anim;
+    private Animator animator;
     public override void Enter()
     {
         base.Enter();
-        anim = turn.actor.GetComponentInChildren<Animation>();
+        animator = turn.actor.GetComponentInChildren<Animator>();
         turn.hasUnitActed = true;
         if (turn.hasUnitMoved)
             turn.lockMove = true;
@@ -17,14 +17,11 @@ public class PerformAbilityState : BattleState
     IEnumerator Animate()
     {
         // TODO play animations, etc
-        if (anim)
-            anim.Play("Attack");
+        animator.SetBool("Attack", true);
         yield return new WaitForSeconds(2);
         
         ApplyAbility();
-        if (anim)
-            anim.Play("Idle");
-
+        animator.SetBool("Attack", false);
         yield return new WaitForSeconds(2f);
         if (IsBattleOver())
         {

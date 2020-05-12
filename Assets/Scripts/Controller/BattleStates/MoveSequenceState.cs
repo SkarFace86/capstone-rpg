@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveSequenceState : BattleState
 {
+
     public override void Enter()
     {
         base.Enter();
@@ -12,13 +13,11 @@ public class MoveSequenceState : BattleState
 
     IEnumerator Sequence()
     {
-        Animation anim = turn.actor.GetComponentInChildren<Animation>();
+        Animator animator = turn.actor.GetComponentInChildren<Animator>();
         Movement m = turn.actor.GetComponent<Movement>();
-        if (anim)
-            anim.Play("Move");
+        animator.SetBool("isMoving", true);
         yield return StartCoroutine(m.Traverse(owner.currentTile));
-        if (anim)
-            anim.Play("Idle");
+        animator.SetBool("isMoving", false);
         turn.hasUnitMoved = true;
         owner.ChangeState<CommandSelectionState>();
     }

@@ -56,10 +56,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1162e9fb33c09b041aa5df6124836daf, type: 2}
+  - {fileID: 2100000, guid: 6336d802679d73444aaa90f0e192a4ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,3 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42396e3a29cac984c81ef33bbb4d13ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: {fileID: 0}
+  prev: {fileID: 0}
+  distance: 0
+  pos:
+    x: 0
+    y: 0
+  height: 0

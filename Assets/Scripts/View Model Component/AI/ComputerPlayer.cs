@@ -230,13 +230,15 @@ public class ComputerPlayer : MonoBehaviour
         {
             AttackOption option = list[i];
             int score = option.GetScore(actor, poa.ability);
-            if (score > bestScore)
+            int actorMana = actor.GetComponent<Mana>().MP;
+            int abilityCost = poa.ability.GetComponent<AbilityMagicCost>().amount;
+            if (score > bestScore && actorMana >= abilityCost)
             {
                 bestScore = score;
                 BestOptions.Clear();
                 BestOptions.Add(option);
             }
-            else if (score == bestScore)
+            else if (score == bestScore && actorMana >= abilityCost)
             {
                 BestOptions.Add(option);
             }

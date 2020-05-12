@@ -6,6 +6,7 @@ public abstract class Movement : MonoBehaviour
 {
     public int range { get { return stats[StatTypes.MOV]; } }
     public int jumpHeight { get { return stats[StatTypes.JMP]; } }
+    public bool isMoving = false;
     protected Unit unit;
     protected Transform jumper;
     protected float halfExtents;
@@ -17,7 +18,6 @@ public abstract class Movement : MonoBehaviour
         unit = GetComponent<Unit>();
         jumper = transform.Find("Jumper");
         //halfExtents = transform.Find("Scale").localScale.y;
-        anim = GetComponentInChildren<Animation>();
     }
 
     protected virtual void Start()
